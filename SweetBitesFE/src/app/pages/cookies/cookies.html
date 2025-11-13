@@ -1,0 +1,103 @@
+<main class="cookies-page">
+  <!-- Top nav / brand -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">🍪</span>
+      <span class="brand-name">Sweet Bites</span>
+    </div>
+
+    <nav class="nav-actions">
+      <button mat-icon-button aria-label="search"><mat-icon>search</mat-icon></button>
+      <button mat-icon-button aria-label="account"><mat-icon>account_circle</mat-icon></button>
+      <button mat-icon-button aria-label="cart"><mat-icon>shopping_cart</mat-icon></button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" [style.background-image]="'url(/assets/images/cookies_page/cookiesnormal.jpeg)'">
+    <div class="hero-content">
+      <h1 class="hero-title">Artisan Cookies, Baked to Perfection</h1>
+      <p class="hero-sub">Discover our collection of handcrafted cookies, made with the finest ingredients and baked fresh daily.</p>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="controls">
+    <div class="left-controls">
+      <mat-form-field appearance="outline" class="flavor-select">
+        <mat-select placeholder="Filter by Flavor" [(value)]="selectedFlavor" (selectionChange)="applyFilters()">
+          <mat-option value="">All Flavors</mat-option>
+          <mat-option *ngFor="let f of flavors" [value]="f">{{ f }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-slide-toggle [(ngModel)]="deliveryOnly" (change)="applyFilters()">Delivery Available</mat-slide-toggle>
+    </div>
+
+    <div class="right-controls">
+      <mat-form-field appearance="outline" class="sort-select">
+        <mat-select placeholder="Sort by" [(value)]="sortBy" (selectionChange)="applyFilters()">
+          <mat-option value="popularity">Popularity</mat-option>
+          <mat-option value="price-asc">Price: Low → High</mat-option>
+          <mat-option value="price-desc">Price: High → Low</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <!-- Product grid -->
+  <section class="products">
+    <div class="grid">
+      <mat-card class="cookie-card" *ngFor="let p of displayedProducts">
+        <div class="card-image">
+          <img [src]="p.image" [alt]="p.name" />
+        </div>
+        <mat-card-content>
+          <h3 class="product-name">{{ p.name }}</h3>
+          <p class="product-desc">{{ p.short }}</p>
+          <div class="price-row">
+            <span class="price">\${{ p.price.toFixed(2) }}</span>
+            <button mat-stroked-button color="primary" class="add-btn" (click)="addToCart(p)">
+              Add to Cart
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <section class="paging">
+    <mat-paginator [length]="filteredProducts.length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="[4,8,12]"
+                   (page)="pageChanged($event)">
+    </mat-paginator>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Sweet Bites</h4>
+        <p>Handcrafted cookies with love — delivered to your door.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <p>Cookies · Pastries · About</p>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <p>Contact · FAQ · Shipping</p>
+      </div>
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <mat-form-field appearance="outline" class="newsletter-field">
+          <input matInput placeholder="Your email" />
+        </mat-form-field>
+        <button mat-flat-button>Sign up</button>
+      </div>
+    </div>
+    <div class="copyright">© 2025 SweetBites. All rights reserved.</div>
+  </footer>
+</main>
