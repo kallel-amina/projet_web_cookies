@@ -1,0 +1,25 @@
+<div class="flex justify-center items-center min-h-screen bg-background-light dark:bg-background-dark">
+  <div class="w-full max-w-lg p-8 bg-card-light dark:bg-card-dark rounded-xl shadow-md">
+    <h2 class="text-3xl font-bold text-center mb-4">Create Your Account</h2>
+    <p class="text-center text-text-secondary-light dark:text-text-secondary-dark mb-6">Sign up to start your sweet journey.</p>
+
+    <form (ngSubmit)="signup()" class="flex flex-col gap-4">
+      <input [(ngModel)]="fullName" name="fullName" type="text" placeholder="Full Name"
+             class="form-input w-full px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary/50"/>
+      <input [(ngModel)]="email" name="email" type="email" placeholder="Email Address"
+             class="form-input w-full px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary/50"/>
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Password"
+             class="form-input w-full px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary/50"/>
+      <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"
+             class="form-input w-full px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark focus:ring-2 focus:ring-primary/50"/>
+      <button type="submit" class="w-full py-2 mt-2 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+        Sign Up
+      </button>
+    </form>
+
+    <p class="mt-4 text-center text-red-500">{{ message }}</p>
+    <p class="mt-4 text-center text-text-secondary-light dark:text-text-secondary-dark text-sm">
+      Already have an account? <a routerLink="/login" class="text-primary font-bold hover:underline">Log in</a>
+    </p>
+  </div>
+</div>

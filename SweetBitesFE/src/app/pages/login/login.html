@@ -1,0 +1,71 @@
+<div class="relative flex min-h-screen w-full flex-col bg-vanilla-cream overflow-x-hidden">
+  <div class="flex h-full min-h-screen grow">
+    <div class="grid flex-1 grid-cols-1 lg:grid-cols-2">
+      <!-- Left image -->
+      <div class="relative hidden h-full w-full lg:flex">
+        <img class="absolute inset-0 h-full w-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSw-H7nDZxX6mokqMpGVSIQBFneGJiGaBjnvHxkAv1oRJbxdT8lFuZcPvsbGfvvYvDBOXGPI9apb0LpLnfbbczEFcOdSqHJNyI5_L4_joW3WVVlMgeCm7-Us08jFs5GyseMNKv7n-prORpFfu6JnWrx1JFL45qO123MF1W8sF98kZKGwQUSfxyvki5gzwtJLLOxcGGnDCDAa0sXWxbRGbQ2xaqkdmsN8o6JJHyQcSIlf_rLfzD9-iCzJtYT6rZ8LKoPU2xc9iCsUE"/>
+      </div>
+
+      <!-- Right login form -->
+      <div class="flex w-full items-center justify-center bg-white-chocolate p-8 md:p-12 lg:p-16">
+        <div class="flex w-full max-w-md flex-col gap-8">
+          <!-- Logo & title -->
+          <div class="flex items-center gap-3 text-dark-chocolate">
+            <svg class="size-8" fill="none" viewBox="0 0 48 48">
+              <g clip-path="url(#clip0_6_535)">
+                <path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+              </g>
+            </svg>
+            <h2 class="text-2xl font-bold leading-tight tracking-[-0.015em]">Sweet Bites</h2>
+          </div>
+
+          <!-- Card -->
+          <div class="w-full rounded-xl bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.05)]">
+            <div class="mb-6 text-center">
+              <h1 class="text-dark-chocolate text-[28px] font-bold leading-tight">Welcome Back</h1>
+              <p class="text-milk-chocolate text-base font-normal leading-normal pt-2">
+                Log in to access your account and see your saved treats.
+              </p>
+            </div>
+
+            <!-- Login Form -->
+            <form (ngSubmit)="onSubmit()" class="flex flex-col gap-5">
+              <div class="flex flex-col">
+                <label class="flex flex-col">
+                  <p class="text-dark-chocolate text-sm font-medium leading-normal pb-2">Email / Username</p>
+                  <input [(ngModel)]="email" name="email" type="email" placeholder="Enter your email or username"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-[#E5E0DC] bg-white px-4 py-3 text-base font-normal leading-normal text-dark-chocolate placeholder:text-[#A9746E]/60 focus:border-caramel-chocolate focus:ring-2 focus:ring-caramel-chocolate/30">
+                </label>
+              </div>
+
+              <div class="flex flex-col">
+                <div class="flex items-baseline justify-between">
+                  <p class="text-dark-chocolate text-sm font-medium leading-normal pb-2">Password</p>
+                  <a class="text-sm font-medium text-hazelnut-chocolate hover:text-dark-chocolate" href="#">Forgot Password?</a>
+                </div>
+                <div class="relative flex w-full flex-1 items-stretch">
+                  <input [(ngModel)]="password" name="password" 
+                    [type]="showPassword ? 'text' : 'password'" 
+                    placeholder="Enter your password"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-[#E5E0DC] bg-white px-4 py-3 text-base font-normal leading-normal text-dark-chocolate placeholder:text-[#A9746E]/60 focus:border-caramel-chocolate focus:ring-2 focus:ring-caramel-chocolate/30">
+                  <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 text-milk-chocolate" (click)="togglePassword()">
+                    <span class="material-symbols-outlined">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" class="mt-4 flex h-12 w-full items-center justify-center rounded-lg bg-hazelnut-chocolate text-base font-bold text-white shadow-sm transition-all hover:bg-opacity-90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-hazelnut-chocolate focus:ring-offset-2">
+                Login
+              </button>
+            </form>
+          </div>
+
+          <p class="text-center text-sm text-milk-chocolate">
+            Don't have an account? <a href="#" class="font-bold text-hazelnut-chocolate hover:underline">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
