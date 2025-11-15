@@ -1,0 +1,140 @@
+<div class="font-display bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-200 relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+  <div class="layout-container flex h-full grow flex-col">
+    <!-- TopNavBar Start -->
+   
+    <main class="flex-1">
+      <div class="layout-content-container flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- HeaderImage Start -->
+        <div class="w-full">
+          <div
+            class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px]"
+            role="img"
+            aria-label="A beautiful, delicious-looking tiramisu dessert on a plate"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuADxe4rhvgyjyHdjTXx_iwY67YZWcDKVWuyzaosL3vRvG_2-Dm7jqJEY9BpunXCbcNzQJS6BdowaTzhzy7_q70HSRn7AkbvTgPWivxtDVQ8RtY1VWwJf1hEh21DrTtKe7EydmqGkjqW5t-XkEOeOOGfZlcKClbf_JaxzdV4VLLl_Lrjsi1taaDWhN7hN-QaV26eQFQgvnWv8h5VGk_CSPrOcV6n1hoFrchwD8DSuXJn4_hb6IuGgjNMI59bdGHoYWCTXI3U-_cHPzw');"
+          >
+            <div class="flex p-8">
+              <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Tiramisu Collection</h1>
+            </div>
+          </div>
+        </div>
+        <!-- HeaderImage End -->
+
+        <!-- Breadcrumbs Start -->
+        <div class="flex flex-wrap gap-2 py-6">
+          <a class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white transition-colors" href="#">Home</a>
+          <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+          <a class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white transition-colors" href="#">Desserts</a>
+          <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+          <span class="text-text-primary dark:text-gray-200 text-sm font-medium leading-normal">Tiramisu</span>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Chips/Filters Start -->
+        <div class="flex flex-wrap items-center gap-3 pb-6 border-b border-primary/20 dark:border-white/10">
+          <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 pl-4 pr-3 text-text-primary dark:text-gray-200 hover:border-primary transition-colors">
+            <p class="text-sm font-medium leading-normal">Sort By</p>
+            <span class="material-symbols-outlined text-lg" aria-hidden="true">expand_more</span>
+          </button>
+
+          <!-- Filter chips wired up -->
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('classic')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='classic'}"
+          >
+            <p class="text-sm font-medium leading-normal">Classic</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('fruit-infused')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='fruit-infused'}"
+          >
+            <p class="text-sm font-medium leading-normal">Fruit-infused</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('liqueur-free')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='liqueur-free'}"
+          >
+            <p class="text-sm font-medium leading-normal">Liqueur-free</p>
+          </button>
+        </div>
+        <!-- Chips/Filters End -->
+
+        <!-- ImageGrid Start (dynamic) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
+          <div class="flex flex-col gap-4 group" *ngFor="let p of filteredProducts">
+            <div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl overflow-hidden shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
+              <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" [alt]="p.imageAlt" [src]="p.imageUrl" />
+            </div>
+            <div class="flex flex-col items-start text-left">
+              <p class="text-text-primary dark:text-white text-lg font-bold leading-normal">{{ p.name }}</p>
+              <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.description }}</p>
+              <p class="text-text-primary dark:text-gray-300 text-base font-medium leading-normal mt-1">
+                ${{ p.price | number:'1.2-2' }}
+              </p>
+              <button class="mt-3 flex w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-5 hover:bg-primary/90 transition-colors"
+                      (click)="addToCart(p)">
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Optional empty state -->
+          <div *ngIf="filteredProducts.length === 0" class="col-span-full text-center text-text-secondary dark:text-gray-400">
+            No desserts match your search.
+          </div>
+        </div>
+        <!-- ImageGrid End -->
+      </div>
+    </main>
+
+    <!-- Footer Start -->
+    <footer class="w-full bg-white dark:bg-background-dark border-t border-primary/10 dark:border-white/10 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-1">
+            <h3 class="text-lg font-bold text-text-primary dark:text-white">Sweet Bites</h3>
+            <p class="mt-2 text-sm text-text-secondary dark:text-gray-400">Handcrafted desserts made with love and the finest ingredients.</p>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">Shop</h4>
+            <ul class="mt-4 space-y-2">
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Cakes</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Pastries</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Collections</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Gifts</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">About</h4>
+            <ul class="mt-4 space-y-2">
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Our Story</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Contact Us</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">FAQ</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Shipping</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">Newsletter</h4>
+            <p class="mt-4 text-sm text-text-secondary dark:text-gray-400">Sign up for sweet deals and updates.</p>
+            <form class="mt-4 flex" action="#" method="post" novalidate>
+              <input class="form-input w-full rounded-l-full border-primary/20 dark:border-white/20 focus:ring-primary focus:border-primary text-sm bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-200" placeholder="Your email" type="email" aria-label="Email address">
+              <button class="px-4 py-2 bg-primary text-white rounded-r-full hover:bg-primary/90 text-sm font-semibold" type="submit">Sign Up</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-12 border-t border-primary/10 dark:border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-text-secondary dark:text-gray-500">
+          <p>© 2024 Sweet Bites. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 sm:mt-0">
+            <a class="hover:text-primary dark:hover:text-white" href="#">Terms of Service</a>
+            <a class="hover:text-primary dark:hover:text-white" href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </div>
+</div>

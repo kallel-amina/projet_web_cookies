@@ -13,3 +13,29 @@
   <app-root></app-root>
 </body>
 </html>
+<!-- Tailwind (CDN) + plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#7B4B3A",
+          "background-light": "#F9EFE6",
+          "background-dark": "#211911",
+          "text-primary": "#3E2723",
+          "text-secondary": "#A9746E",
+          "accent": "#E6A1A6",
+          "card-background": "#FDFBF9",
+          "button-secondary": "#D2A679"
+        },
+        fontFamily: { "display": ["Work Sans", "sans-serif"] },
+        borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" }
+      }
+    }
+  }
+</script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">

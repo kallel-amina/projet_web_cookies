@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 
 interface Product {
   id: number;
@@ -29,6 +30,7 @@ interface Product {
   templateUrl: './cookies.html',
   styleUrls: ['./cookies.css'],
   imports: [
+    RouterModule,
     CommonModule,
     FormsModule,
     MatButtonModule,
