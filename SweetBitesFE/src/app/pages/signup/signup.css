@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.form-input {
+  flex: 1;
+  min-width: 0;
+  resize: none;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-light);
+  background-color: var(--background-light);
+  color: var(--text-primary-light);
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-input:focus {
+  outline: none;
+  ring: 2px var(--primary);
+  border-color: var(--primary);
+}
+
+/* Tailwind custom colors are applied in tailwind.config.js, just like cookies page */
