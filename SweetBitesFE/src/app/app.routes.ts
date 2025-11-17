@@ -11,6 +11,7 @@ export const routes: Routes = [
   { path: 'cookies', component: CookiesComponent, title: 'Cookies' },
 
   { path: 'tiramisu', component: TiramisuComponent, title: 'Tiramisu Collection' },
+  {path:'signin', component: SigninComponent, title:'Sign In'},
 
   { path: 'signup', component: SignupComponent , title : 'Signup'  },
 
