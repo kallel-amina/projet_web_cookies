@@ -9,8 +9,8 @@
           <div
             class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px]"
             role="img"
-            aria-label="A beautiful, delicious-looking tiramisu dessert on a plate"
-            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://images.unsplash.com/photo-1541753866388-0b3c6b7a3d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"
+            aria-label="A beautiful, delicious-looking brownies dessert on a plate"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX_4To4iKYSCK7uEr0hr_ME1-IdDiuQWdI0jf70LqmmE7BVkxONu5XOxXImqmtBU1jRSXQWUoGVpuPIUK0VHLIsGdPMacD17gOvOUeFTsrMQTXG9DAmkBgw7OcfZe7Ig7ASbxAY9hJP6UGbBrYxFzH9EQXAhymw1pi_WkeMpXBauDbdW9p3FQBVmGkgdwTSrr_AA2JOmKqYuORuq8wpTHls7uMjs3MA4dKP4YzJGhkXJ9lUn2kQJXkt_utB5b1PDqRZjyPBo4cn0Y');"
           >
             <div class="flex p-8">
               <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Brownies Collection</h1>
@@ -25,7 +25,7 @@
           <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
           <a class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white transition-colors" href="#">Desserts</a>
           <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-          <span class="text-text-primary dark:text-gray-200 text-sm font-medium leading-normal">Tiramisu</span>
+          <span class="text-text-primary dark:text-gray-200 text-sm font-medium leading-normal">Brownies</span>
         </div>
         <!-- Breadcrumbs End -->
 
@@ -39,26 +39,26 @@
           <!-- Filter chips wired up -->
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('classic')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='classic'}"
+            (click)="filterByCategory('fudgy')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='fudgy'}"
           >
-            <p class="text-sm font-medium leading-normal">Classic</p>
+            <p class="text-sm font-medium leading-normal">Fudgy</p>
           </button>
 
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('fruit-infused')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='fruit-infused'}"
+            (click)="filterByCategory('chewy')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='chewy'}"
           >
-            <p class="text-sm font-medium leading-normal">Fruit-infused</p>
+            <p class="text-sm font-medium leading-normal">Chewy</p>
           </button>
 
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('liqueur-free')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='liqueur-free'}"
+            (click)="filterByCategory('nutty')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='nutty'}"
           >
-            <p class="text-sm font-medium leading-normal">Liqueur-free</p>
+            <p class="text-sm font-medium leading-normal">Nutty</p>
           </button>
         </div>
         <!-- Chips/Filters End -->
@@ -84,7 +84,7 @@
 
           <!-- Optional empty state -->
           <div *ngIf="filteredProducts.length === 0" class="col-span-full text-center text-text-secondary dark:text-gray-400">
-            No desserts match your search.
+            No brownies match your search.
           </div>
         </div>
         <!-- ImageGrid End -->

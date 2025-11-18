@@ -4,10 +4,11 @@ import { HomeComponent } from './pages/home/home';
 import { TiramisuComponent } from './pages/tiramisu/tiramisu';
 import{ CookiesComponent } from './pages/cookies/cookies.component';  
 import { Header } from './header/header';
+import { brownies } from './pages/brownies/brownies';
 
 @Component({
   selector: 'app-root',
-  imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent, Header, RouterModule],
+  imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent, Header, RouterModule, brownies],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true

@@ -1,0 +1,12 @@
+/* Keep the same Tailwind-like utility structure as Tiramisu page */
+:host {
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #F9EFE6;
+}
+
+/* Optional: Hover scaling */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
