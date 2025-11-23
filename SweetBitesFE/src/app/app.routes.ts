@@ -4,6 +4,7 @@ import { TiramisuComponent } from './pages/tiramisu/tiramisu';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { SignupComponent } from './pages/signup/signup';
 import { SigninComponent } from './pages/signin/signin';
+import { ProfileComponent } from './pages/profile/profile';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
@@ -15,7 +16,10 @@ export const routes: Routes = [
 
   { path: 'signup', component: SignupComponent , title : 'Signup'  },
 
+
   { path: 'login', component: SigninComponent },
+
+  { path: 'profile', component: ProfileComponent, title: 'profile' },
 
   // TODO: create brownies page component
   // { path: 'brownies', component: BrowniesComponent, title: 'Brownies' },
