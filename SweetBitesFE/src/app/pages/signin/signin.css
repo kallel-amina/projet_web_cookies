@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+
+:host {
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  color: #3E2723;
+  background-color: #F9EFE6; /* vanilla cream */
+  min-height: 100vh;
+}
+
+/* Container */
+.signin-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.signin-left {
+  display: none;
+}
+.signin-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signin-right {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #FDFBF9; /* white chocolate */
+}
+
+.signin-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+
+.signin-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.signin-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3E2723;
+}
+
+.signin-header p {
+  color: #7B4B3A;
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+/* Form fields */
+.mat-form-field {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #E5E0DC;
+  font-size: 14px;
+  color: #3E2723;
+}
+
+.form-input:focus {
+  border-color: #D2A679;
+  outline: none;
+}
+
+/* Password toggle */
+.password-toggle {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #A9746E;
+}
+
+/* Login button */
+.login-btn {
+  margin-top: 1rem;
+  height: 48px;
+  width: 100%;
+  background-color: #A9746E; /* hazelnut chocolate */
+  color: white;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #8b5f53;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Footer link */
+.signin-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 12px;
+  color: #7B4B3A;
+}
+
+.signin-footer a {
+  font-weight: 700;
+  color: #A9746E;
+  text-decoration: none;
+}
+
+.signin-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .signin-left { display: block; }
+}

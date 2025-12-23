@@ -1,0 +1,6 @@
+/* Les utilitaires Tailwind viennent du CDN (index.html).
+   Ici on met seulement de petits styles portés par le composant. */
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

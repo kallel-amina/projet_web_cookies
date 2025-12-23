@@ -1,0 +1,34 @@
+<div class="signin-page">
+  <div class="signin-left">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSw-H7nDZxX6mokqMpGVSIQBFneGJiGaBjnvHxkAv1oRJbxdT8lFuZcPvsbGfvvYvDBOXGPI9apb0LpLnfbbczEFcOdSqHJNyI5_L4_joW3WVVlMgeCm7-Us08jFs5GyseMNKv7n-prORpFfu6JnWrx1JFL45qO123MF1W8sF98kZKGwQUSfxyvki5gzwtJLLOxcGGnDCDAa0sXWxbRGbQ2xaqkdmsN8o6JJHyQcSIlf_rLfzD9-iCzJtYT6rZ8LKoPU2xc9iCsUE" alt="Cookies image">
+  </div>
+
+  <div class="signin-right">
+    <div class="signin-card">
+      <div class="signin-header">
+        <h1>Welcome Back</h1>
+        <p>Log in to access your account and see your saved treats.</p>
+      </div>
+      <form (ngSubmit)="login()">
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Email / Username" [(ngModel)]="email" name="email" class="form-input">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <div class="relative">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password" name="password" class="form-input">
+            <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </div>
+        </mat-form-field>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="signin-footer">
+        Don't have an account? <a [routerLink]="['/signup']">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
