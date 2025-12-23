@@ -1,92 +1,99 @@
-<main class="cookies-page">
-  <!-- Top nav / brand -->
-  
-
-  <!-- Hero -->
-  <section class="hero" [style.background-image]="'url(/assets/images/cookies_page/cookiesnormal.jpeg)'">
-    <div class="hero-content">
-      <h1 class="hero-title">Artisan Cookies, Baked to Perfection</h1>
-      <p class="hero-sub">Discover our collection of handcrafted cookies, made with the finest ingredients and baked fresh daily.</p>
-    </div>
-  </section>
-
-  <!-- Controls -->
-  <section class="controls">
-    <div class="left-controls">
-      <mat-form-field appearance="outline" class="flavor-select">
-        <mat-select placeholder="Filter by Flavor" [(value)]="selectedFlavor" (selectionChange)="applyFilters()">
-          <mat-option value="">All Flavors</mat-option>
-          <mat-option *ngFor="let f of flavors" [value]="f">{{ f }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-slide-toggle [(ngModel)]="deliveryOnly" (change)="applyFilters()">Delivery Available</mat-slide-toggle>
-    </div>
-
-    <div class="right-controls">
-      <mat-form-field appearance="outline" class="sort-select">
-        <mat-select placeholder="Sort by" [(value)]="sortBy" (selectionChange)="applyFilters()">
-          <mat-option value="popularity">Popularity</mat-option>
-          <mat-option value="price-asc">Price: Low → High</mat-option>
-          <mat-option value="price-desc">Price: High → Low</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </section>
-
-  <!-- Product grid -->
-  <section class="products">
-    <div class="grid">
-      <mat-card class="cookie-card" *ngFor="let p of displayedProducts">
-        <div class="card-image">
-          <img [src]="p.image" [alt]="p.name" />
-        </div>
-        <mat-card-content>
-          <h3 class="product-name">{{ p.name }}</h3>
-          <p class="product-desc">{{ p.short }}</p>
-          <div class="price-row">
-            <span class="price">\${{ p.price.toFixed(2) }}</span>
-            <button mat-stroked-button color="primary" class="add-btn" (click)="addToCart(p)">
-              Add to Cart
-            </button>
+<div class="font-display bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-200 relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+  <div class="layout-container flex h-full grow flex-col">
+    
+    <!-- Hero Section -->
+    <main class="flex-1">
+      <div class="layout-content-container flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="w-full">
+          <div
+            class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px]"
+            role="img"
+            aria-label="Delicious cookies on a plate"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDT7wXOmJHwyxGit0w-eVh_2v3LGLT7GejCM9G4ZdRzTo2fjLE7OjBeRcv1dJpuqys0kzyzl4QxOJrnud3Kv-RI-2MFaj1_10TuXAnY3VtU0_cjUmPPkuy2d9EidX6NKhFuedODIfX65JHFIJsu52Xn3Ay15XbOLgjRoKb8JQxbc96i0ZO33WqysxQGTen7FLb6PPPPqWXKpNqimOA2ZyNCqfwEsSS6vtJlW71XpRjUB0QCoTBT8JEzdoX0y9aS1SXyO7CaIVtQqzA');"
+          >
+            <div class="flex p-8">
+              <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Artisan Cookies, Baked to Perfection</h1>
+            </div>
           </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </section>
+        </div>
 
-  <!-- Pagination -->
-  <section class="paging">
-    <mat-paginator [length]="filteredProducts.length"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="[4,8,12]"
-                   (page)="pageChanged($event)">
-    </mat-paginator>
-  </section>
+        <!-- Filters -->
+        <div class="flex flex-wrap items-center gap-3 py-6 border-b border-primary/20 dark:border-white/10">
+          <mat-form-field appearance="outline" class="flex-1">
+            <mat-select placeholder="Filter by Flavor" [(value)]="selectedFlavor" (selectionChange)="applyFilters()">
+              <mat-option value="">All Flavors</mat-option>
+              <mat-option *ngFor="let f of flavors" [value]="f">{{ f }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-slide-toggle [(ngModel)]="deliveryOnly" (change)="applyFilters()">Delivery Available</mat-slide-toggle>
+          <mat-form-field appearance="outline" class="flex-1">
+            <mat-select placeholder="Sort by" [(value)]="sortBy" (selectionChange)="applyFilters()">
+              <mat-option value="popularity">Popularity</mat-option>
+              <mat-option value="price-asc">Price: Low → High</mat-option>
+              <mat-option value="price-desc">Price: High → Low</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <h4>Sweet Bites</h4>
-        <p>Handcrafted cookies with love — delivered to your door.</p>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
+          <div class="flex flex-col gap-4 group" *ngFor="let p of displayedProducts">
+            <div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl overflow-hidden shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
+              <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" [src]="p.image" [alt]="p.name" />
+            </div>
+            <div class="flex flex-col items-start text-left">
+              <p class="text-text-primary dark:text-white text-lg font-bold leading-normal">{{ p.name }}</p>
+              <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.short }}</p>
+              <p class="text-text-primary dark:text-gray-300 text-base font-medium leading-normal mt-1">
+                ${{ p.price | number:'1.2-2' }}
+              </p>
+              <button class="mt-3 flex w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-5 hover:bg-primary/90 transition-colors"
+                      (click)="addToCart(p)">
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="displayedProducts.length === 0" class="col-span-full text-center text-text-secondary dark:text-gray-400">
+            No cookies match your search.
+          </div>
+        </div>
       </div>
-      <div>
-        <h4>Shop</h4>
-        <p>Cookies · Pastries · About</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white dark:bg-background-dark border-t border-primary/10 dark:border-white/10 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-bold text-text-primary dark:text-white">Sweet Bites</h3>
+            <p class="mt-2 text-sm text-text-secondary dark:text-gray-400">Handcrafted cookies made with love and the finest ingredients.</p>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">Shop</h4>
+            <ul class="mt-4 space-y-2">
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Cookies</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Pastries</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">Customer Service</h4>
+            <ul class="mt-4 space-y-2">
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Contact</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">FAQ</a></li>
+              <li><a class="text-sm text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-white" href="#">Shipping</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-base font-semibold text-text-primary dark:text-white tracking-wider">Newsletter</h4>
+            <form class="mt-4 flex" action="#" method="post" novalidate>
+              <input class="form-input w-full rounded-l-full border-primary/20 dark:border-white/20 focus:ring-primary focus:border-primary text-sm bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-200" placeholder="Your email" type="email">
+              <button class="px-4 py-2 bg-primary text-white rounded-r-full hover:bg-primary/90 text-sm font-semibold" type="submit">Sign Up</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4>Customer Service</h4>
-        <p>Contact · FAQ · Shipping</p>
-      </div>
-      <div class="newsletter">
-        <h4>Newsletter</h4>
-        <mat-form-field appearance="outline" class="newsletter-field">
-          <input matInput placeholder="Your email" />
-        </mat-form-field>
-        <button mat-flat-button>Sign up</button>
-      </div>
-    </div>
-    <div class="copyright">© 2025 SweetBites. All rights reserved.</div>
-  </footer>
-</main>
+    </footer>
+  </div>
+</div>
