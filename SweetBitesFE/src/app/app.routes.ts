@@ -8,9 +8,11 @@ import { SigninComponent } from './pages/signin/signin';
 import { ProfileComponent } from './pages/profile/profile';
 
 import { brownies } from './pages/brownies/brownies';
+import { OurStory } from './our-story/our-story';
 
 
 export const routes: Routes = [
+  {path: 'our-story', component: OurStory, title: 'Our Story'},
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
 
   { path: 'cookies', component: CookiesComponent, title: 'Cookies' },

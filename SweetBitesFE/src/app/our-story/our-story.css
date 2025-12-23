@@ -1,0 +1,30 @@
+
+
+        .story-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-container h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .story-container p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            font-style: italic;
+            font-weight: 600;
+            color: #8b4a3c;
+            text-align: center;
+            margin: 30px 0;
+        }
