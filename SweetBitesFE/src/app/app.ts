@@ -5,15 +5,18 @@ import { TiramisuComponent } from './pages/tiramisu/tiramisu';
 import{ CookiesComponent } from './pages/cookies/cookies.component';  
 
 import { Header } from './header/header';
+
 import { SigninComponent } from './pages/signin/signin';
 import { SignupComponent } from './pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './footer/footer';
+import { brownies } from './pages/brownies/brownies';
 
 @Component({
   selector: 'app-root',
   imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent  , Header, RouterModule , SigninComponent,
-    SignupComponent , HttpClientModule, Footer  , ],
+    SignupComponent , HttpClientModule, Footer  , brownies],
+
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true
