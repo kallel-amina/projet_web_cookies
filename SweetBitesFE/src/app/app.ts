@@ -11,11 +11,17 @@ import { SignupComponent } from './pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './footer/footer';
 import { BrowniesComponent } from './pages/brownies/brownies';
+import { ProfileComponent  } from './pages/profile/profile';
+
+
+
+
+
 
 @Component({
   selector: 'app-root',
   imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent  , Header, RouterModule , SigninComponent,
-    SignupComponent , HttpClientModule, Footer  , BrowniesComponent ],
+    SignupComponent , HttpClientModule, Footer  , BrowniesComponent , ProfileComponent ],
 
   templateUrl: './app.html',
   styleUrl: './app.css',

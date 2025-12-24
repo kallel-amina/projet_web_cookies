@@ -1,7 +1,7 @@
 .profile-wrapper {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: auto;
-  padding: 32px;
+  padding: 40px;
   background: #f9efe6;
 }
 
@@ -9,10 +9,10 @@
 .profile-header {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 30px;
   background: linear-gradient(135deg, #e6a1a6, #d2a679);
   padding: 40px;
-  border-radius: 30px
+  border-radius: 28px;
 }
 
 .avatar {

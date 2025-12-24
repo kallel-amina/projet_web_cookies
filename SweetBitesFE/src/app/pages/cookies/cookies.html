@@ -98,7 +98,7 @@
               <p class="text-text-primary dark:text-white text-lg font-bold leading-normal">{{ p.name }}</p>
               <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.description }}</p>
               <p class="text-text-primary dark:text-gray-300 text-base font-medium leading-normal mt-1">
-                ${{ p.price | number:'1.2-2' }}
+                {{ p.price | number:'1.2-2' }} DT
               </p>
               <button class="mt-3 flex w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] px-5 hover:bg-primary/90 transition-colors"
                       (click)="addToCart(p)">
