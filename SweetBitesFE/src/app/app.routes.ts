@@ -21,7 +21,7 @@ export const routes: Routes = [
 
   { path: 'profile', component: ProfileComponent, title: 'profile' },
 
-  // TODO: create brownies page component
+  
   // { path: 'brownies', component: BrowniesComponent, title: 'Brownies' },
 
   { path: '**', redirectTo: '' }
