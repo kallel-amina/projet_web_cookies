@@ -19,7 +19,7 @@ export interface brownie {
   templateUrl: './brownies.html',
   styleUrls: ['./brownies.css'],
 })
-export class brownies {
+export class BrowniesComponent {
   products: brownie[] = [
     { id: 1, name: 'Classic Fudge Brownie', description: 'Espresso & Mascarpone', price: 4.50,
       imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA5lELSmmqAoc2VIAnPgjrTU2YsrJHF_Flpgwx_EzrZNGdNd2ZnWYbxBYvbH7P3Wi5zDux6feV2p-rG2vYacBF6RIXpoxze-Ks6HGSIXaB-QXnoGXYnAYIGEa1v00Nsfn5x8vNGsERcfGRDLp31nHI9jp2o2HpxP7jhMyiZTFGjRCWDkotXqDHLICUIM5aCtvp2cPR8xUWAZ8E2YwygAp4hPK0VWcktRqLi_Qfh5yzwTMxbKqglxA4IkoEUF8ycoNxop_MbXpW6apc',

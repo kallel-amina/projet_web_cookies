@@ -6,8 +6,7 @@ import { CookiesComponent } from './pages/cookies/cookies.component';
 import { SignupComponent } from './pages/signup/signup';
 import { SigninComponent } from './pages/signin/signin';
 import { ProfileComponent } from './pages/profile/profile';
-
-import { brownies } from './pages/brownies/brownies';
+import { BrowniesComponent } from './pages/brownies/brownies';
 import { OurStory } from './our-story/our-story';
 
 
@@ -27,7 +26,7 @@ export const routes: Routes = [
 
   { path: 'profile', component: ProfileComponent, title: 'profile' },
 
-{ path: 'brownies', component: BrowniesComponent, title: 'Brownies' },
+{ path: 'brownies', component: BrowniesComponent, title: 'brownies' },
 
   { path: '**', redirectTo: '' }
 ];

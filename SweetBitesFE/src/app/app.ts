@@ -10,12 +10,12 @@ import { SigninComponent } from './pages/signin/signin';
 import { SignupComponent } from './pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './footer/footer';
-import { brownies } from './pages/brownies/brownies';
+import { BrowniesComponent } from './pages/brownies/brownies';
 
 @Component({
   selector: 'app-root',
   imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent  , Header, RouterModule , SigninComponent,
-    SignupComponent , HttpClientModule, Footer  , brownies],
+    SignupComponent , HttpClientModule, Footer  , BrowniesComponent ],
 
   templateUrl: './app.html',
   styleUrl: './app.css',

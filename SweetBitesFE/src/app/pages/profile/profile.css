@@ -1,15 +1,146 @@
-/* Tailwind handles most styling, just add custom variants if needed */
-
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+.profile-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px;
+  background: #f9efe6;
 }
 
-@layer utilities {
-  .border-b-3 {
-    border-bottom-width: 3px;
-  }
+/* HEADER */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, #e6a1a6, #d2a679);
+  padding: 40px;
+  border-radius: 30px
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lobster', cursive;
+  font-size: 36px;
+  color: #3e2723;
+}
+
+.brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: #3e2723;
+}
+
+.email {
+  font-family: 'Playfair Display', serif;
+  color: #5c3a2e;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.tabs button {
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7b4b3a;
+}
+
+.tabs button.active {
+  border-bottom: 3px solid #3e2723;
+  color: #3e2723;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 16px;
+}
+
+/* FAVORITES */
+.favorites {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.favorite {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.favorite img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.favorite-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.favorite:hover .favorite-overlay {
+  opacity: 1;
+}
+
+.favorite-overlay h3 {
+  font-family: 'Lobster', cursive;
+}
+
+.favorite-overlay button {
+  margin-top: 8px;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ORDERS */
+.orders .order {
+  background: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Lobster', cursive;
+}
+
+.status.delivered { color: green; }
+.status.pending { color: orange; }
+.status.cancelled { color: red; }
+
+.total {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
 }
