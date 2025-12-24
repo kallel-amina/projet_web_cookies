@@ -1,49 +1,102 @@
 <div class="font-display bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-200 relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
   <div class="layout-container flex h-full grow flex-col">
-    
-    <!-- Hero Section -->
     <main class="flex-1">
       <div class="layout-content-container flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- HeaderImage Start -->
         <div class="w-full">
           <div
             class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px]"
             role="img"
-            aria-label="Delicious cookies on a plate"
-            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDT7wXOmJHwyxGit0w-eVh_2v3LGLT7GejCM9G4ZdRzTo2fjLE7OjBeRcv1dJpuqys0kzyzl4QxOJrnud3Kv-RI-2MFaj1_10TuXAnY3VtU0_cjUmPPkuy2d9EidX6NKhFuedODIfX65JHFIJsu52Xn3Ay15XbOLgjRoKb8JQxbc96i0ZO33WqysxQGTen7FLb6PPPPqWXKpNqimOA2ZyNCqfwEsSS6vtJlW71XpRjUB0QCoTBT8JEzdoX0y9aS1SXyO7CaIVtQqzA');"
+            aria-label="Assorted delicious cookies on a plate"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfrJx0tWaBAzLour74tDY_cSDSNTOChFmo2Al1bXqOhb9qbyu523_qL-AyyXaaep6UrmDPiVIhr6MerlCZgFvlj5H3cl6_nQ0RTBq0_82i3Pzpqsgza5AnP_dJh6g4MzZ8Q93uwEk72P6ivzrhvyEGNZCZ61IURRVVGjyGnx1BusRnFgn7O_RuSmD3nqRSD35vY9Rs6O-7M7wC7JyMhIIGH1QUZVjBwe9fgEkTgaaCi1Pm63-79tq9n27yPyixBXwzX1vwOveER_c');"
           >
             <div class="flex p-8">
-              <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Artisan Cookies, Baked to Perfection</h1>
+              <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Cookies Collection</h1>
             </div>
           </div>
         </div>
+        <!-- HeaderImage End -->
 
-        <!-- Filters -->
-        <div class="flex flex-wrap items-center gap-3 py-6 border-b border-primary/20 dark:border-white/10">
-          <mat-form-field appearance="outline" class="flex-1">
-            <mat-select placeholder="Filter by Flavor" [(value)]="selectedFlavor" (selectionChange)="applyFilters()">
-              <mat-option value="">All Flavors</mat-option>
-              <mat-option *ngFor="let f of flavors" [value]="f">{{ f }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-slide-toggle [(ngModel)]="deliveryOnly" (change)="applyFilters()">Delivery Available</mat-slide-toggle>
-          <mat-form-field appearance="outline" class="flex-1">
-            <mat-select placeholder="Sort by" [(value)]="sortBy" (selectionChange)="applyFilters()">
-              <mat-option value="popularity">Popularity</mat-option>
-              <mat-option value="price-asc">Price: Low → High</mat-option>
-              <mat-option value="price-desc">Price: High → Low</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <!-- Breadcrumbs Start -->
+        <div class="flex flex-wrap gap-2 py-6">
+          <a class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white transition-colors" href="#">Home</a>
+          <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+          <a class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white transition-colors" href="#">Desserts</a>
+          <span class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+          <span class="text-text-primary dark:text-gray-200 text-sm font-medium leading-normal">Cookies</span>
         </div>
+        <!-- Breadcrumbs End -->
 
-        <!-- Products Grid -->
+        <!-- Chips/Filters Start -->
+        <div class="flex flex-wrap items-center gap-3 pb-6 border-b border-primary/20 dark:border-white/10">
+          <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 pl-4 pr-3 text-text-primary dark:text-gray-200 hover:border-primary transition-colors">
+            <p class="text-sm font-medium leading-normal">Sort By</p>
+            <span class="material-symbols-outlined text-lg" aria-hidden="true">expand_more</span>
+          </button>
+
+          <!-- Filter chips wired up -->
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('classic')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='classic'}"
+          >
+            <p class="text-sm font-medium leading-normal">Classic</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('chocolate')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='chocolate'}"
+          >
+            <p class="text-sm font-medium leading-normal">Chocolate</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('fruit')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='fruit'}"
+          >
+            <p class="text-sm font-medium leading-normal">Fruit-infused</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('nuts')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='nuts'}"
+          >
+            <p class="text-sm font-medium leading-normal">Nuts</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('tea')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='tea'}"
+          >
+            <p class="text-sm font-medium leading-normal">Tea</p>
+          </button>
+          
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('all')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='all'}"
+          >
+            <p class="text-sm font-medium leading-normal">All Types</p>
+          </button>
+
+
+        </div>
+        <!-- Chips/Filters End -->
+
+        <!-- ImageGrid Start (dynamic) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
-          <div class="flex flex-col gap-4 group" *ngFor="let p of displayedProducts">
+          <div class="flex flex-col gap-4 group" *ngFor="let p of filteredProducts">
             <div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl overflow-hidden shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
-              <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" [src]="p.image" [alt]="p.name" />
+              <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" [alt]="p.imageAlt" [src]="p.imageUrl" />
             </div>
             <div class="flex flex-col items-start text-left">
               <p class="text-text-primary dark:text-white text-lg font-bold leading-normal">{{ p.name }}</p>
-              <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.short }}</p>
+              <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.description }}</p>
               <p class="text-text-primary dark:text-gray-300 text-base font-medium leading-normal mt-1">
                 ${{ p.price | number:'1.2-2' }}
               </p>
@@ -54,13 +107,13 @@
             </div>
           </div>
 
-          <div *ngIf="displayedProducts.length === 0" class="col-span-full text-center text-text-secondary dark:text-gray-400">
+          <!-- Optional empty state -->
+          <div *ngIf="filteredProducts.length === 0" class="col-span-full text-center text-text-secondary dark:text-gray-400">
             No cookies match your search.
           </div>
         </div>
+        <!-- ImageGrid End -->
       </div>
     </main>
-
-    
   </div>
 </div>
