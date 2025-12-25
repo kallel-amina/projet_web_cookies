@@ -6,68 +6,72 @@
   font-family: 'Playfair Display', serif;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
 }
 
-/* Scalloped top */
-.scalloped-top {
-  position: relative;
-}
-.scalloped-top::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background-image: radial-gradient(circle at 50% -10px, transparent 20px, #F9EFE6 21px);
-  background-size: 40px 40px;
-  background-repeat: repeat-x;
-  transform: translateY(-100%);
-}
 
-/* Buttons */
-.order-btn {
-  margin-top: 1rem;
-  height: 3rem;
-  min-width: 84px;
-  max-width: 480px;
-  border-radius: 9999px;
-  background-color: #4E2A1E;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-.order-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  background-color: #5a3525;
-}
 
-/* Images common style */
-#cookie-img, #brownie-img, #tiramisu-img {
+#cookie-img,
+#brownie-img,
+#tiramisu-img {
   width: 100%;
   height: 16rem;
   object-fit: cover;
   border-radius: 0.75rem;
   cursor: pointer;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
-              0 4px 6px -2px rgba(0,0,0,0.05);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
-}
-#cookie-img:hover, #brownie-img:hover, #tiramisu-img:hover {
-  transform: translateY(-5px) scale(1.05) rotate(-1deg);
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-  filter: brightness(1.1);
+
+  box-shadow:
+    0 10px 15px -3px rgba(0,0,0,0.12),
+    0 4px 6px -2px rgba(0,0,0,0.08);
+
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.45s ease,
+    filter 0.35s ease;
 }
 
-/* Fade-in animations */
+#cookie-img:hover,
+#brownie-img:hover,
+#tiramisu-img:hover {
+  transform: translateY(-10px) scale(1.08) rotate(-1deg);
+  box-shadow:
+    0 30px 60px -12px rgba(0,0,0,0.35),
+    0 18px 36px -18px rgba(0,0,0,0.25);
+  filter: brightness(1.12);
+}
+
+/* Optional: slight press-down effect */
+#cookie-img:active,
+#brownie-img:active,
+#tiramisu-img:active {
+  transform: translateY(-4px) scale(1.04);
+}
+
+
+.order-btn {
+  margin-top: 1rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #4E2A1E;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.order-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: #5a3525;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -81,48 +85,7 @@
   }
 }
 
-/* Staggered delays */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.3s; }
 .delay-3 { animation-delay: 0.4s; }
 .delay-4 { animation-delay: 0.5s; }
-.delay-5 { animation-delay: 0.6s; }
-
-/* Typing effect for hero subtitle */
-.typing-text {
-  border-right: 2px solid #4E2A1E;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
-}
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
-/* Parallax background for hero */
-.hero-background {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Card hover animation for services section */
-.card-hover {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.card-hover:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-.font-pacifico {
-  font-family: 'Pacifico', cursive;
-}
-.font-brand {
-  font-family: 'Playfair Display', serif;
-}
