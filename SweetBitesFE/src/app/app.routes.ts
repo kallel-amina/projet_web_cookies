@@ -9,10 +9,12 @@ import { ProfileComponent } from './pages/profile/profile';
 
 import { brownies } from './pages/brownies/brownies';
 import { OurStory } from './our-story/our-story';
+import { PrivacyPolicy } from './privacy-policy/privacy-policy';
 
 
 
 export const routes: Routes = [
+  { path: 'privacy-policy', component: PrivacyPolicy, title: 'Privacy Policy' },
   {path: 'our-story', component: OurStory, title: 'Our Story'},
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
 
