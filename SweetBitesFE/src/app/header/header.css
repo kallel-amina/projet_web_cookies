@@ -82,3 +82,11 @@
 .icon-btn:hover {
   background: rgba(230, 161, 166, 0.2);
 }
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+.brand-logo {
+  font-size: 2rem; /* Bigger cookie emoji */
+  margin-right: 0.4rem; /* Space between emoji and text */
+  vertical-align: middle; /* Align with text */
+}
