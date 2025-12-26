@@ -1,0 +1,83 @@
+<div class="font-display bg-background-light text-text-primary min-h-screen">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+    <!-- Header -->
+    <div class="mb-10 text-center">
+      <h1 style="font-family: 'Pacifico', cursive; font-size: 3rem;">
+  Contact Us
+</h1>
+
+
+  
+      <p class="text-text-secondary text-center italic mt-2">We’d love to hear from you. Every message adds sweetness 🍪</p>
+
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-md p-8">
+
+      <form #contactForm="ngForm" (ngSubmit)="submitForm(contactForm.value)" class="flex flex-col gap-6">
+
+        <!-- Type -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Purpose</label>
+          <select
+            name="type"
+            [(ngModel)]="formType"
+            class="w-full rounded-lg border border-primary/20 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <option value="reclamation">Reclamation</option>
+            <option value="comment">Comment</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            ngModel
+            required
+            class="w-full rounded-lg border border-primary/20 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            ngModel
+            required
+            class="w-full rounded-lg border border-primary/20 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Message</label>
+          <textarea
+            name="message"
+            rows="5"
+            ngModel
+            required
+            class="w-full rounded-lg border border-primary/20 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="self-start rounded-full bg-primary text-white px-8 py-3 font-bold hover:bg-primary/90 transition-colors"
+        >
+          Send Message
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
