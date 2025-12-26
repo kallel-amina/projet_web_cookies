@@ -9,10 +9,16 @@ import { ProfileComponent } from './pages/profile/profile';
 
 import { brownies } from './pages/brownies/brownies';
 import { OurStory } from './our-story/our-story';
+import { PrivacyPolicy } from './privacy-policy/privacy-policy';
+import { TermsOfService } from './terms-of-service/terms-of-service';
+import { Notifications } from './notifications/notifications';
 
 
 
 export const routes: Routes = [
+  {path: 'notifications', component: Notifications, title: 'Notifications'},
+  { path: 'terms-of-service', component: TermsOfService, title: 'Terms of Service' },
+  { path: 'privacy-policy', component: PrivacyPolicy, title: 'Privacy Policy' },
   {path: 'our-story', component: OurStory, title: 'Our Story'},
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
 

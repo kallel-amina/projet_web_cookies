@@ -1,0 +1,144 @@
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-end gap-3 p-4 mb-2">
+<div class="flex min-w-72 flex-col gap-3">
+<h1 class="text-[#181411] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Your Notifications</h1>
+<p class="text-[#887563] dark:text-[#b09b88] text-base font-normal leading-normal">Stay updated with your orders and our latest sweet offers.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f4f2f0] dark:bg-[#382c22] hover:bg-[#e5e0dc] dark:hover:bg-[#4a3a2d] text-[#181411] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+<span class="truncate">Mark all as read</span>
+</button>
+</div>
+<!-- Tabs -->
+<div class="pb-6 px-4">
+<div class="flex border-b border-[#e5e0dc] dark:border-[#3e3226] gap-8 overflow-x-auto">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#181411] dark:border-b-primary text-[#181411] dark:text-white pb-[13px] pt-4 min-w-fit px-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">All</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#887563] hover:text-[#181411] dark:hover:text-white pb-[13px] pt-4 min-w-fit px-2 transition-colors" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Orders</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#887563] hover:text-[#181411] dark:hover:text-white pb-[13px] pt-4 min-w-fit px-2 transition-colors" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Promotions</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#887563] hover:text-[#181411] dark:hover:text-white pb-[13px] pt-4 min-w-fit px-2 transition-colors" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">System</p>
+</a>
+</div>
+</div>
+<!-- Today Section -->
+<h3 class="px-4 pb-3 pt-2 text-sm font-bold text-[#887563] uppercase tracking-wider">Today</h3>
+<!-- Item 1: Order Ready (Unread) -->
+<div class="mb-3 mx-4 rounded-xl bg-white dark:bg-[#2c2219] shadow-sm hover:shadow-md transition-shadow border-l-4 border-l-primary overflow-hidden">
+<div class="flex gap-4 p-4 justify-between flex-col sm:flex-row sm:items-center">
+<div class="flex items-start gap-4">
+<div class="text-[#181411] dark:text-white flex items-center justify-center rounded-lg bg-[#f4f2f0] dark:bg-[#382c22] shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<div class="flex items-center gap-2">
+<p class="text-[#181411] dark:text-white text-base font-bold leading-normal">Order #4029 Ready for Pickup</p>
+<span class="inline-block size-2 rounded-full bg-primary animate-pulse" title="Unread"></span>
+</div>
+<p class="text-[#887563] dark:text-[#b09b88] text-xs font-medium leading-normal">2 hours ago</p>
+<p class="text-[#4a3f35] dark:text-[#d4c5b5] text-sm font-normal leading-normal mt-1">
+                                        Your delicious box of pastries has been baked fresh and is ready for collection at our Downtown branch.
+                                    </p>
+</div>
+</div>
+<div class="shrink-0 flex sm:flex-col gap-2 pt-2 sm:pt-0">
+<button class="flex-1 sm:flex-none flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/10 hover:bg-primary/20 text-primary dark:text-primary-light text-sm font-bold leading-normal w-fit transition-colors">
+<span class="truncate">View Order</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Flash Sale (Unread) -->
+<div class="mb-3 mx-4 rounded-xl bg-white dark:bg-[#2c2219] shadow-sm hover:shadow-md transition-shadow border-l-4 border-l-primary overflow-hidden">
+<div class="flex gap-4 p-4 justify-between flex-col sm:flex-row sm:items-center">
+<div class="flex items-start gap-4">
+<div class="text-[#cf7317] dark:text-[#e0892b] flex items-center justify-center rounded-lg bg-[#fff1e0] dark:bg-[#3e2a19] shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">local_offer</span>
+</div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<div class="flex items-center gap-2">
+<p class="text-[#181411] dark:text-white text-base font-bold leading-normal">Flash Sale: 20% Off Eclairs</p>
+<span class="inline-block size-2 rounded-full bg-primary animate-pulse" title="Unread"></span>
+</div>
+<p class="text-[#887563] dark:text-[#b09b88] text-xs font-medium leading-normal">5 hours ago</p>
+<p class="text-[#4a3f35] dark:text-[#d4c5b5] text-sm font-normal leading-normal mt-1">
+                                        Indulge in our signature chocolate and coffee eclairs with a special weekend discount. Don't miss out!
+                                    </p>
+</div>
+</div>
+<div class="shrink-0 flex sm:flex-col gap-2 pt-2 sm:pt-0">
+<button class="flex-1 sm:flex-none flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white hover:bg-primary/90 text-sm font-bold leading-normal w-fit transition-colors shadow-sm">
+<span class="truncate">Shop Now</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Yesterday Section -->
+<h3 class="px-4 pb-3 pt-6 text-sm font-bold text-[#887563] uppercase tracking-wider">Yesterday</h3>
+<!-- Item 3: Delivery (Read) -->
+<div class="mb-3 mx-4 rounded-xl bg-white dark:bg-[#2c2219] shadow-sm hover:shadow-md transition-shadow opacity-90 hover:opacity-100">
+<div class="flex gap-4 p-4 justify-between flex-col sm:flex-row sm:items-center">
+<div class="flex items-start gap-4">
+<div class="text-[#887563] flex items-center justify-center rounded-lg bg-[#f4f2f0] dark:bg-[#382c22] shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+</div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-[#181411] dark:text-white text-base font-medium leading-normal">Order #4028 Shipped</p>
+<p class="text-[#887563] dark:text-[#b09b88] text-xs font-medium leading-normal">Yesterday, 4:30 PM</p>
+<p class="text-[#887563] dark:text-[#a08b78] text-sm font-normal leading-normal mt-1">
+                                        Your order is on its way! Track your sweet delivery to see when it arrives.
+                                    </p>
+</div>
+</div>
+<div class="shrink-0 flex sm:flex-col gap-2 pt-2 sm:pt-0">
+<button class="flex-1 sm:flex-none flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-[#f4f2f0] dark:bg-[#382c22] hover:bg-[#e5e0dc] dark:hover:bg-[#4a3a2d] text-[#181411] dark:text-white text-sm font-medium leading-normal w-fit transition-colors">
+<span class="truncate">Track</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4: System (Read) -->
+<div class="mb-3 mx-4 rounded-xl bg-white dark:bg-[#2c2219] shadow-sm hover:shadow-md transition-shadow opacity-90 hover:opacity-100">
+<div class="flex gap-4 p-4 justify-between flex-col sm:flex-row sm:items-center">
+<div class="flex items-start gap-4">
+<div class="text-[#887563] flex items-center justify-center rounded-lg bg-[#f4f2f0] dark:bg-[#382c22] shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">celebration</span>
+</div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-[#181411] dark:text-white text-base font-medium leading-normal">Welcome to Sweet Bites!</p>
+<p class="text-[#887563] dark:text-[#b09b88] text-xs font-medium leading-normal">Yesterday, 9:00 AM</p>
+<p class="text-[#887563] dark:text-[#a08b78] text-sm font-normal leading-normal mt-1">
+                                        We're thrilled to have you. Complete your profile to receive a free macaron on your next visit.
+                                    </p>
+</div>
+</div>
+<div class="shrink-0 flex sm:flex-col gap-2 pt-2 sm:pt-0">
+<button class="flex-1 sm:flex-none flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-[#f4f2f0] dark:bg-[#382c22] hover:bg-[#e5e0dc] dark:hover:bg-[#4a3a2d] text-[#181411] dark:text-white text-sm font-medium leading-normal w-fit transition-colors">
+<span class="truncate">Complete Profile</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="flex justify-center mt-6 mb-10">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-8 border border-[#e5e0dc] dark:border-[#3e3226] bg-transparent hover:bg-[#f4f2f0] dark:hover:bg-[#2c2219] text-[#887563] dark:text-[#b09b88] text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                            Load older notifications
+                        </button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
