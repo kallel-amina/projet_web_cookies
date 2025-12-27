@@ -20,7 +20,7 @@
   </nav>
 
   <!-- ACCOUNT -->
-  <section *ngIf="activeTab==='account'" class="card">
+  <section *ngIf="activeTab==='account'" class="card account-card">
     <h2>Account Information</h2>
     <p><strong>Name:</strong> {{ user.name }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
@@ -53,7 +53,7 @@
       <ul>
         <li *ngFor="let item of order.items"> {{ item }}</li>
       </ul>
-      <p class="total">Total: {{ order.total }}  DT </p>  
+      <p class="total">Total: {{ order.total }} DT</p>  
     </div>
   </section>
 

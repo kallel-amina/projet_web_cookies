@@ -1,27 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
 :host {
-  display: block;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.form-input {
-  flex: 1;
-  min-width: 0;
-  resize: none;
+/* PAGE */
+.page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9efe6, #efe0d3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   overflow: hidden;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-light);
-  background-color: var(--background-light);
-  color: var(--text-primary-light);
-  height: 3rem;
-  padding: 0 1rem;
-  font-size: 1rem;
-  transition: all 0.2s ease-in-out;
 }
 
-.form-input:focus {
+/* BLURS */
+.bg-blur {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(207, 115, 23, 0.25);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.bg-blur.one {
+  top: -100px;
+  left: -100px;
+}
+
+.bg-blur.two {
+  bottom: -120px;
+  right: -120px;
+}
+
+/* CARD */
+.signup-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 1.25rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  animation: slideUp 0.6s ease;
+}
+
+/* BRAND */
+.brand {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #614529;
+}
+
+.brand p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* TITLES */
+h1 {
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+/* INPUTS */
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  background: transparent;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  font-size: 0.85rem;
+  color: #888;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* FLOAT LABEL */
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  font-size: 0.75rem;
+  color: #372818;
+}
+
+/* FOCUS */
+.input-group input:focus {
   outline: none;
-  ring: 2px var(--primary);
-  border-color: var(--primary);
+  border-color: #6a4a2a;
+  box-shadow: 0 0 0 3px rgba(207, 115, 23, 0.2);
 }
 
-/* Tailwind custom colors are applied in tailwind.config.js, just like cookies page */
+/* PASSWORD */
+.input-group.password button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #5b4025, #a45b12);
+  color: white;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(100, 66, 31, 0.4);
+}
+
+/* FOOTER */
+.footer-text {
+  margin-top: 1.8rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.footer-text a {
+  color: #7a5632;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATION */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

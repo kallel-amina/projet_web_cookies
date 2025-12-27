@@ -2,31 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-
 
 @Component({
   selector: 'app-signup',
   standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './signup.html',
-  styleUrls: ['./signup.css'],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    MatButtonModule,
-    MatInputModule
-  ]
+  styleUrls: ['./signup.css']
 })
 export class SignupComponent {
-  showPassword: boolean = false;
+  showPassword = false;
 
   togglePassword() {
     this.showPassword = !this.showPassword;
   }
 
   submitForm() {
-    alert('Sign up submitted! Implement backend integration here.');
+    console.log('Signup form submitted');
   }
 }

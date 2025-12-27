@@ -1,68 +1,59 @@
-<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4 bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark overflow-x-hidden">
-  <div class="layout-container flex w-full max-w-lg flex-col items-center justify-center z-10">
-    
-    <!-- Header -->
-    <header class="flex items-center justify-center gap-2.5 whitespace-nowrap px-10 py-6 text-center">
-      <div class="size-8 text-primary">
-         <span class="brand-logo">🍪</span>
+<div class="page-wrapper">
 
+  <!-- Background blobs -->
+  <div class="bg-blur one"></div>
+  <div class="bg-blur two"></div>
+
+  <section class="signup-card">
+
+    <!-- Logo -->
+    <div class="brand">
+      <span class="logo">Sweet Bites</span>
+      <p>Bakery & Pastry House</p>
+    </div>
+
+    <!-- Title -->
+    <h1>Create Account</h1>
+    <p class="subtitle">Join us and enjoy handcrafted sweetness 🍪</p>
+
+    <!-- Form -->
+    <form (ngSubmit)="submitForm()">
+
+      <div class="input-group">
+        <input type="text" required />
+        <label>Full Name</label>
       </div>
-      <h2 class="text-2xl font-bold leading-tight tracking-[-0.015em]">Sweet Bites</h2>
-    </header>
 
-    <!-- Main Card -->
-    <main class="w-full rounded-xl bg-card-light dark:bg-card-dark shadow-lg shadow-primary/10 dark:shadow-black/20">
-      <div class="flex flex-col p-8 sm:p-10">
-        
-        <!-- Headline -->
-        <div class="text-center">
-          <h1 class="text-3xl font-bold tracking-tight">Create Your Account</h1>
-          <p class="mt-2 text-base text-text-secondary-light dark:text-text-secondary-dark">Sign up to start your sweet journey.</p>
-        </div>
-
-        <!-- Signup Form -->
-        <form (ngSubmit)="submitForm()" class="mt-8 flex flex-col gap-5">
-          
-          <div class="flex flex-col">
-            <label for="full-name" class="text-sm font-medium leading-normal pb-2">Full Name</label>
-            <input id="full-name" type="text" placeholder="Enter your full name" class="form-input"/>
-          </div>
-
-          <div class="flex flex-col">
-            <label for="email" class="text-sm font-medium leading-normal pb-2">Email Address</label>
-            <input id="email" type="email" placeholder="Enter your email address" class="form-input"/>
-          </div>
-
-          <div class="flex flex-col">
-            <label for="password" class="text-sm font-medium leading-normal pb-2">Password</label>
-            <div class="relative flex items-center">
-              <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Enter your password" class="form-input pr-10"/>
-              <button type="button" (click)="togglePassword()" class="absolute right-3 text-text-secondary-light dark:text-text-secondary-dark">
-                <span class="material-symbols-outlined text-xl">
-                  {{ showPassword ? 'visibility' : 'visibility_off' }}
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div class="flex flex-col">
-            <label for="confirm-password" class="text-sm font-medium leading-normal pb-2">Confirm Password</label>
-            <input id="confirm-password" type="password" placeholder="Confirm your password" class="form-input"/>
-          </div>
-
-          <button type="submit" class="mt-4 flex h-12 w-full items-center justify-center rounded-lg bg-primary text-white text-base font-bold transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
-            Sign Up
-          </button>
-        </form>
-
-        <!-- Footer Link -->
-        <div class="mt-6 text-center">
-          <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
-            Already have an account? <a routerLink="/login" class="font-bold text-primary hover:underline">Log in</a>
-          </p>
-        </div>
-
+      <div class="input-group">
+        <input type="email" required />
+        <label>Email Address</label>
       </div>
-    </main>
-  </div>
+
+      <div class="input-group password">
+        <input [type]="showPassword ? 'text' : 'password'" required />
+        <label>Password</label>
+
+        <button type="button" (click)="togglePassword()">
+          {{ showPassword ?   '👁️' : '🙈' }}
+        </button>
+      </div>
+
+      <div class="input-group">
+        <input type="password" required />
+        <label>Confirm Password</label>
+      </div>
+
+      <button class="submit-btn" type="submit">
+        Create Account
+      </button>
+
+    </form>
+
+    <!-- Footer -->
+    <p class="footer-text">
+      Already a member?
+      <a routerLink="/login">Login here</a>
+    </p>
+
+  </section>
 </div>
