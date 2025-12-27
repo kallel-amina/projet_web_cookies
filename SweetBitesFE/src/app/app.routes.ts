@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicy, title: 'Privacy Policy' },
   {path: 'our-story', component: OurStory, title: 'Our Story'},
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
-  { path: 'contact', component: ContactComponent , title: 'Contact Us' },
+  { path: 'contact', component: ContactComponent , title: 'contact' },
   { path: 'cookies', component: CookiesComponent, title: 'Cookies' },
 
   { path: 'tiramisu', component: TiramisuComponent, title: 'Tiramisu Collection' },
