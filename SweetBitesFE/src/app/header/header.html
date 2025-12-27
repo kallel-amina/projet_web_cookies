@@ -1,11 +1,11 @@
 <header class="header">
   <div class="header-inner">
-    <div class="logo">
+    <a routerLink="/" class="logo flex items-center gap-2 cursor-pointer hover:opacity-90 transition" aria-label="Go to home">
         <span class="brand-logo">🍪</span>
 
-      <h1 class="font-pacifico">Sweet Bites</h1>
+      <h1 class="font-pacifico" >Sweet Bites</h1>
 
-    </div>
+    </a>
 
     <nav class="nav">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>

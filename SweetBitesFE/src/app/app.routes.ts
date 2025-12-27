@@ -16,6 +16,7 @@ import { Notifications } from './notifications/notifications';
 import { ContactComponent } from './pages/contact/contact.component';
 
 
+
 export const routes: Routes = [
   {path: 'notifications', component: Notifications, title: 'Notifications'},
   { path: 'terms-of-service', component: TermsOfService, title: 'Terms of Service' },

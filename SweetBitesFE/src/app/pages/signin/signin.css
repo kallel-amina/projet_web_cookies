@@ -1,79 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&family=Pacifico&display=swap');
 
 :host {
   display: block;
   font-family: 'Work Sans', sans-serif;
   color: #3E2723;
-  background-color: #F9EFE6; /* vanilla cream */
+  background-color: #F9EFE6;
   min-height: 100vh;
 }
 
-/* Container */
+/* ------------------ Layout ------------------ */
 .signin-page {
   display: flex;
   min-height: 100vh;
 }
 
+/* Left image smaller and fun */
 .signin-left {
   display: none;
+  flex: 0.4;
+  overflow: hidden;
+  border-radius: 1rem 0 0 1rem;
 }
 .signin-left img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-top: 0%;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.signin-left img:hover {
+  transform: scale(1.1) rotate(-1deg);
+  filter: brightness(1.1);
 }
 
+/* Right card */
 .signin-right {
+  flex: 0.6;
   display: flex;
-  flex: 1;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background-color: #FDFBF9; /* white chocolate */
+  background-color: #FDFBF9;
 }
 
+/* Card styling */
 .signin-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.signin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
+/* Card entrance animation */
+.fade-in-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------ Header ------------------ */
 .signin-header {
   text-align: center;
   margin-bottom: 1.5rem;
 }
-
-.signin-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #3E2723;
+.brand-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 34px;
+  color: #A9746E;
 }
-
-.signin-header p {
-  color: #7B4B3A;
+.brand-subtitle {
   font-size: 14px;
-  margin-top: 0.5rem;
+  color: #7B4B3A;
+  margin-top: 0.25rem;
 }
 
-/* Form fields */
-.mat-form-field {
-  width: 100%;
-}
-
+/* ------------------ Form ------------------ */
+.mat-form-field { width: 100%; }
 .form-input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  padding: 1.75rem 1rem;
+  border-radius: 0.75rem;
   border: 1px solid #E5E0DC;
   font-size: 14px;
+  transition: all 0.3s ease;
   color: #3E2723;
 }
-
 .form-input:focus {
   border-color: #D2A679;
+  box-shadow: 0 0 8px rgba(210,166,121,0.3);
   outline: none;
 }
 
@@ -85,44 +109,47 @@
   top: 50%;
   transform: translateY(-50%);
   color: #A9746E;
+  background: none;
+  border: none;
+  outline: none;
 }
 
-/* Login button */
+/* ------------------ Login Button ------------------ */
 .login-btn {
   margin-top: 1rem;
   height: 48px;
   width: 100%;
-  background-color: #A9746E; /* hazelnut chocolate */
+  background-color: #A9746E;
   color: white;
   font-weight: 700;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
-
 .login-btn:hover {
   background-color: #8b5f53;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Footer link */
+/* ------------------ Footer ------------------ */
 .signin-footer {
   margin-top: 1rem;
   text-align: center;
   font-size: 12px;
   color: #7B4B3A;
 }
-
 .signin-footer a {
   font-weight: 700;
   color: #A9746E;
   text-decoration: none;
+  transition: color 0.3s;
 }
-
 .signin-footer a:hover {
+  color: #8b5f53;
   text-decoration: underline;
 }
 
-/* Responsive */
+/* ------------------ Responsive ------------------ */
 @media (min-width: 1024px) {
   .signin-left { display: block; }
 }
