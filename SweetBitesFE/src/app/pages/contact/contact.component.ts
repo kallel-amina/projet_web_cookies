@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,9 +12,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactComponent {
     formType = 'comment';
+  constructor(private contactService: ContactService) {}
 
-  submitForm(formValue: any) {
-    console.log('Contact form submitted:', formValue);
-    alert('Thank you for your message 💌');
-  }
+  
+  submitForm(formData: any) {
+  this.contactService.sendMessage(formData).subscribe({
+    next: () => alert('Thank you for your message 💌'),
+    error: () => alert('Something went wrong 😢')
+  });
+}
 }
