@@ -13,6 +13,8 @@ import { PrivacyPolicy } from './privacy-policy/privacy-policy';
 import { TermsOfService } from './terms-of-service/terms-of-service';
 import { Notifications } from './notifications/notifications';
 
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 
 export const routes: Routes = [
@@ -21,7 +23,7 @@ export const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicy, title: 'Privacy Policy' },
   {path: 'our-story', component: OurStory, title: 'Our Story'},
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
-
+  { path: 'contact', component: ContactComponent , title: 'contact' },
   { path: 'cookies', component: CookiesComponent, title: 'Cookies' },
 
   { path: 'tiramisu', component: TiramisuComponent, title: 'Tiramisu Collection' },
