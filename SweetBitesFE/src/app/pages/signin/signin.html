@@ -11,12 +11,12 @@
       </div>
       <form (ngSubmit)="login()">
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Email / Username" [(ngModel)]="email" name="email" class="form-input">
+          <input matInput placeholder="Email / Username" [(ngModel)]="email" name="email" class="form-input" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <div class="relative">
-            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password" name="password" class="form-input">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password" name="password" class="form-input" required>
             <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
               <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
