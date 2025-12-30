@@ -49,62 +49,70 @@
       </div>
     </section>
 
-    <!-- Made For You Section -->
-    <section class="bg-off-white py-20 sm:py-24 fade-in delay-2">
-      <div class="mx-auto grid max-w-4xl grid-cols-1 items-center gap-12 px-4 md:grid-cols-2">
-        <div class="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
-          <span class="material-symbols-outlined text-4xl text-powder-pink">favorite</span>
-          <h2 class="font-brand text-4xl font-bold text-chocolate-brown">
-            MADE FOR YOU<br />&#123; with love &#125;
-          </h2>
+<!-- Made For You Section -->
+<section class="made-for-you relative overflow-hidden py-24 sm:py-28 fade-in delay-2">
+  <div class="mx-auto max-w-5xl px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+    <div class="flex flex-col gap-4 md:items-start text-center md:text-left relative">
+      <span class="material-symbols-outlined text-6xl text-marron drop-shadow-lg animate-pulse">favorite</span>
+      <h2 class="font-brand text-4xl font-bold text-chocolate-brown sm:text-5xl md:text-6xl fade-in delay-2">
+  <span class="font-pacifico">
+    MADE FOR YOU
+    <span class="text-powder-pink/80 text-2xl block mt-2 tracking-wide">&#123; with love &#125;</span>
+  </span>
+</h2>
+
+    </div>
+    <p class="text-lg md:text-xl text-chocolate-brown/90 leading-relaxed transition-colors duration-500 hover:text-marron">
+      Every dessert at Sweet Bites is handcrafted with passion and the finest ingredients. Let our treats make your day a little sweeter.
+    </p>
+  </div>
+
+  <!-- Floating accent shapes -->
+  <div class="absolute top-12 right-16 w-6 h-6 bg-powder-pink rounded-full opacity-40 animate-bounce-slow"></div>
+  <div class="absolute bottom-20 left-16 w-10 h-10 bg-marron/20 rounded-full opacity-50 animate-bounce-slow"></div>
+  <div class="absolute top-32 left-1/2 w-16 h-16 bg-beige-light rounded-full opacity-30 animate-bounce-slow"></div>
+</section>
+
+<!-- Services Section -->
+<section class="services relative py-24 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Service Card 1 -->
+      <div class="service-card flex flex-col items-center gap-4 rounded-3xl p-8 text-center shadow-2xl bg-gradient-to-tr from-beige-light via-cream-beige to-powder-pink transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:from-powder-pink hover:via-beige-light hover:to-marron">
+        <div class="icon flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-powder-pink/20 to-marron/20 text-chocolate-brown text-4xl hover:scale-110 transition-transform duration-300">
+          <span class="material-symbols-outlined">local_shipping</span>
         </div>
-        <p class="text-lg leading-relaxed text-chocolate-brown/80">
-          At Sweet Bites, every dessert is handmade with premium ingredients, creativity, and a touch of happiness.
-        </p>
+        <h3 class="text-2xl font-pacifico mt-4 text-chocolate-brown hover:text-marron transition-colors duration-300">Fast Delivery</h3>
+        <p class="text-chocolate-brown/80 mt-2 text-sm md:text-base">We bring your desserts fresh and on time, keeping every bite perfect.</p>
       </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="bg-cream-beige py-20 sm:py-24">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div class="flex flex-col items-center gap-4 rounded-xl border border-powder-pink bg-white p-6 text-center shadow-sm fade-in delay-1">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-powder-pink/10 text-chocolate-brown">
-              <span class="material-symbols-outlined text-3xl">local_shipping</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-bold text-chocolate-brown">Fast Delivery</h3>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center gap-4 rounded-xl border border-powder-pink bg-white p-6 text-center shadow-sm fade-in delay-2">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-powder-pink/10 text-chocolate-brown">
-              <span class="material-symbols-outlined text-3xl">redeem</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-bold text-chocolate-brown">Special Offers</h3>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center gap-4 rounded-xl border border-powder-pink bg-white p-6 text-center shadow-sm fade-in delay-3">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-powder-pink/10 text-chocolate-brown">
-              <span class="material-symbols-outlined text-3xl">diamond</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-bold text-chocolate-brown">Artisan Quality</h3>
-            </div>
-          </div>
+      <!-- Service Card 2 -->
+      <div class="service-card flex flex-col items-center gap-4 rounded-3xl p-8 text-center shadow-2xl bg-gradient-to-tr from-cream-beige via-beige-light to-powder-pink transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:from-powder-pink hover:via-beige-light hover:to-marron">
+        <div class="icon flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-powder-pink/20 to-marron/20 text-chocolate-brown text-4xl hover:scale-110 transition-transform duration-300">
+          <span class="material-symbols-outlined">redeem</span>
         </div>
+        <h3 class="text-2xl font-pacifico mt-4 text-chocolate-brown hover:text-marron transition-colors duration-300">Special Offers</h3>
+        <p class="text-chocolate-brown/80 mt-2 text-sm md:text-base">Seasonal treats and exclusive offers for our sweetest customers.</p>
       </div>
-    </section>
 
-    <!-- Team Section -->
-    <section class="relative bg-dark-chocolate py-20 sm:py-24 fade-in delay-2">
-      <div class="absolute inset-0 bg-cover bg-center opacity-10"
-           style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJdstPc0wh1zo2I0_HVxjaMWESIGt5AZZgJY2RZZI6Qphv_9GBeqUWeKTBaZMmJ5OaJRxLKujVL6pTqEZ9db2ca5yOsSzM6syvsQToiuwkRNlzZl0Oi_eOdIGMkBRBwc_Ctfs_upjvxugDc5ZTGwH-KLWFR5IhYoMsc7r1gowQktu_vtCXWg-VouGIkwspX-bbKSzFh-DXr0qPl0GrrwRt2CWep-kZpGQKhuRJAL6CG_b-sZXtS_47NnQ-nw_0py9RN77s2yMiYcU');"></div>
+      <!-- Service Card 3 -->
+      <div class="service-card flex flex-col items-center gap-4 rounded-3xl p-8 text-center shadow-2xl bg-gradient-to-tr from-powder-pink via-beige-light to-cream-beige transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:from-marron hover:via-beige-light hover:to-powder-pink">
+        <div class="icon flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-powder-pink/20 to-marron/20 text-chocolate-brown text-4xl hover:scale-110 transition-transform duration-300">
+          <span class="material-symbols-outlined">diamond</span>
+        </div>
+        <h3 class="text-2xl font-pacifico mt-4 text-chocolate-brown hover:text-marron transition-colors duration-300">Artisan Quality</h3>
+        <p class="text-chocolate-brown/80 mt-2 text-sm md:text-base">Handmade with the finest ingredients, crafted with love and care.</p>
+      </div>
 
-      <div class="relative mx-auto max-w-5xl px-4 text-center">
-        <h2 class="font-brand text-4xl font-bold text-cream-beige"> &#123; Our Team &#125;</h2>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team relative bg-gradient-to-b from-chocolate-dark via-marron/90 to-dark-chocolate py-24 sm:py-28 fade-in delay-2">
+  <div class="relative mx-auto max-w-5xl px-4 text-center">
+    <h2 class="font-pacifico text-5xl md:text-6xl text-cream-beige mb-12"> &#123; Our Team &#125;</h2>
 
         <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
           <!-- Team Members -->
