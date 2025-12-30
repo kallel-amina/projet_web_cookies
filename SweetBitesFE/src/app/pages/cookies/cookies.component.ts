@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 export interface CookieProduct {
   id: number;
@@ -65,10 +66,19 @@ export class CookiesComponent {
   }
 }
 
-  addToCart(product: CookieProduct): void {
-    console.log('Added to cart:', product.name);
-    alert(`Added "${product.name}" to cart — $${product.price.toFixed(2)}`);
-  }
+  constructor(private cartService: CartService) {}
+
+showAdded = false;
+
+addToCart(product: CookieProduct) {
+  this.cartService.addToCart(product);
+  this.showAdded = true;
+
+  setTimeout(() => {
+    this.showAdded = false;
+  }, 1200);
+}
+
 
   onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
