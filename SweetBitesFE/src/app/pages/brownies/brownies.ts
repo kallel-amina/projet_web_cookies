@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 export interface brownie {
   id: number;
@@ -67,10 +68,18 @@ export class brownies {
     }
   }
 
-  addToCart(product: brownie): void {
-    console.log('Added to cart:', product.name);
-    // TODO: plug into a CartService later
-  }
+  constructor(private cartService: CartService) {}
+
+showAdded = false;
+
+addToCart(product: brownie) {
+  this.cartService.addToCart(product);
+  this.showAdded = true;
+
+  setTimeout(() => {
+    this.showAdded = false;
+  }, 1200);
+}
 
   onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -87,4 +96,7 @@ export class brownies {
         : [...this.products];
     }
   }
+
+
+
 }

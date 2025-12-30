@@ -4,3 +4,23 @@
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
+.added-toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #ff6b6b;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  font-weight: 500;
+  z-index: 9999;
+
+  opacity: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.added-toast.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}

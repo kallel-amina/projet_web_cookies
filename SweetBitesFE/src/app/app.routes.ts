@@ -14,7 +14,7 @@ import { TermsOfService } from './terms-of-service/terms-of-service';
 import { Notifications } from './notifications/notifications';
 
 import { ContactComponent } from './pages/contact/contact.component';
-
+import { CartComponent } from './cart/cart.component';
 
 
 export const routes: Routes = [
@@ -25,7 +25,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Sweet Bites — Home' },
   { path: 'contact', component: ContactComponent , title: 'contact' },
   { path: 'cookies', component: CookiesComponent, title: 'Cookies' },
-
+  { path: 'cart', component: CartComponent, title: 'Your Cart' },
   { path: 'tiramisu', component: TiramisuComponent, title: 'Tiramisu Collection' },
   {path:'signin', component: SigninComponent, title:'Sign In'},
 

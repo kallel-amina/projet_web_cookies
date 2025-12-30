@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 export interface TiramisuProduct {
   id: number;
@@ -60,10 +61,18 @@ export class TiramisuComponent {
     }
   }
 
-  addToCart(product: TiramisuProduct): void {
-    console.log('Added to cart:', product.name);
-    // TODO: plug into a CartService later
-  }
+  constructor(private cartService: CartService) {}
+
+showAdded = false;
+
+addToCart(product: TiramisuProduct) {
+  this.cartService.addToCart(product);
+  this.showAdded = true;
+
+  setTimeout(() => {
+    this.showAdded = false;
+  }, 1200);
+}
 
   onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
