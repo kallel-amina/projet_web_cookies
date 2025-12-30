@@ -33,7 +33,7 @@ npm install
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/login_db
-JWT_SECRET=sweetiestobite
+JWT_SECRET=..............
 ```
 
 4. Start MongoDB (if local):
