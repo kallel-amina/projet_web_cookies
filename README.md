@@ -27,8 +27,8 @@ cd SweetBitesBE/springboot-backend
 
 ```env
 JWT_SECRET=YourLongSecretKeyAtLeast32Chars
-ADMIN_EMAIL=admin@sweetbites.com
-ADMIN_PASSWORD=Admin@1234
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
 
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
