@@ -1,0 +1,18 @@
+services:
+
+  backend:
+    build: ./SweetBitesBE/springboot-backend
+    ports:
+      - "8080:8080"
+    environment:
+      MONGODB_URI: ${MONGODB_URI:-mongodb+srv://username:password@cluster.mongodb.net/sweetbites?retryWrites=true&w=majority&appName=SweetBites}
+      JWT_SECRET: ${JWT_SECRET:-SecretKeyForSweetBitesJwt1234567890}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@sweetbites.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin@1234}
+      CONTACT_TO_EMAIL: ${CONTACT_TO_EMAIL:-admin@sweetbites.com}
+
+  frontend:
+    build: ./SweetBitesFE
+    ports:
+      - "4200:4200"
+    command: npm start -- --host 0.0.0.0 --port 4200

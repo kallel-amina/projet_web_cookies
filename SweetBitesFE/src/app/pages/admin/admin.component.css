@@ -1,0 +1,26 @@
+.admin-page {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.admin-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+input,
+textarea,
+select,
+button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}

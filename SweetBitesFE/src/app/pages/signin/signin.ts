@@ -27,6 +27,7 @@ export class SigninComponent {
   email: string = '';
   password: string = '';
   hidePassword: boolean = true;
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -35,16 +36,21 @@ export class SigninComponent {
   }
 
   login() {
+    this.errorMessage = '';
     const data = { email: this.email, password: this.password };
     this.authService.login(data).subscribe({
       next: (res) => {
-        alert('Login successful!');
-        // Save token if your backend returns one
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['/home']); // redirect to home page
+        this.authService.setSession(res.token, res.role);
+
+        if (res.role === 'ROLE_ADMIN') {
+          this.router.navigate(['/admin']);
+          return;
+        }
+
+        this.router.navigate(['/']);
       },
       error: (err) => {
-        alert('Login failed: ' + err.error.message || err.message);
+        this.errorMessage = err?.error?.message || err?.message || 'Login failed';
       }
     });
   }

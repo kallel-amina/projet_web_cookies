@@ -24,6 +24,8 @@
         </mat-form-field>
 
         <button type="submit" class="login-btn">Login</button>
+
+        <p *ngIf="errorMessage" class="signin-error">{{ errorMessage }}</p>
       </form>
 
       <div class="signin-footer">

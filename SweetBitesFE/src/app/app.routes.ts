@@ -15,6 +15,8 @@ import { Notifications } from './notifications/notifications';
 
 import { ContactComponent } from './pages/contact/contact.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { adminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -35,6 +37,7 @@ export const routes: Routes = [
   { path: 'login', component: SigninComponent },
 
   { path: 'profile', component: ProfileComponent, title: 'profile' },
+  { path: 'admin', component: AdminComponent, canActivate: [adminGuard], title: 'Admin Dashboard' },
 
   
    { path: 'brownies', component: brownies , title: 'Brownies' },

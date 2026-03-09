@@ -1,27 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home';
-import { TiramisuComponent } from './pages/tiramisu/tiramisu';
-import{ CookiesComponent } from './pages/cookies/cookies.component';  
-
 import { Header } from './header/header';
-
-import { SigninComponent } from './pages/signin/signin';
-import { SignupComponent } from './pages/signup/signup';
-import { HttpClientModule } from '@angular/common/http';
 import { Footer } from './footer/footer';
-import { brownies } from './pages/brownies/brownies';
-import { ProfileComponent  } from './pages/profile/profile';
-
-
-
-
-
 
 @Component({
   selector: 'app-root',
-  imports: [ HomeComponent, TiramisuComponent , RouterOutlet, CookiesComponent  , Header, RouterModule , SigninComponent,
-    SignupComponent , HttpClientModule, Footer  , brownies , ProfileComponent ],
+  imports: [RouterOutlet, Header, RouterModule, Footer],
 
   templateUrl: './app.html',
   styleUrl: './app.css',

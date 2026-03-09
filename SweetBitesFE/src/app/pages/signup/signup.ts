@@ -31,7 +31,6 @@ export class SignupComponent {
     }
 
     const data = {
-      name: this.fullName,
       email: this.email,
       password: this.password
     };
@@ -39,7 +38,8 @@ export class SignupComponent {
     this.authService.signup(data).subscribe({
       next: (res) => {
         alert('Signup successful!');
-        this.router.navigate(['/login']); // redirect to login
+        this.authService.setSession(res.token, res.role);
+        this.router.navigate(['/']);
       },
       error: (err) => {
         alert('Signup failed: ' + err.error.message || err.message);

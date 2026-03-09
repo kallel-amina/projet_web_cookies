@@ -131,6 +131,13 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+.signin-error {
+  margin-top: 0.75rem;
+  color: #b42318;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
 /* ------------------ Footer ------------------ */
 .signin-footer {
   margin-top: 1rem;

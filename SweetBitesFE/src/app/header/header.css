@@ -53,6 +53,10 @@
   color: #e6a1a6;
 }
 
+.logout-link {
+  cursor: pointer;
+}
+
 @media (min-width: 1024px) {
   .nav {
     display: flex;

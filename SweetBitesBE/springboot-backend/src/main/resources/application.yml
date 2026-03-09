@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb+srv://username:password@cluster.mongodb.net/sweetbites?retryWrites=true&w=majority&appName=SweetBites}
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:ThisIsAReplaceMeSecretKeyForSweetBitesJwt1234567890}
+    expiration-ms: 86400000
+  admin:
+    email: ${ADMIN_EMAIL:admin@sweetbites.com}
+    password: ${ADMIN_PASSWORD:Admin@1234}
+  contact:
+    to-email: ${CONTACT_TO_EMAIL:}

@@ -1,60 +1,58 @@
-# projet_web_cookies
-
 # Sweet Bites - Bakery Web App
 
-Sweet Bites is a full-stack bakery web application using **Angular** for the frontend, **Node.js/Express** for the backend, and **MongoDB** for the database. It allows users to sign up, log in, and manage their account.
+Sweet Bites is now a full-stack app using **Angular** for frontend and **Spring Boot** for backend.
 
----
+## Stack
+
+- Frontend: `SweetBitesFE` (Angular, runs on `http://localhost:4200`)
+- Backend: `SweetBitesBE/springboot-backend` (Spring Boot, runs on `http://localhost:8080`)
+- Database: H2 in-memory (for development)
 
 ## Prerequisites
 
-* **Node.js** (v18+ recommended)
-* **npm** (comes with Node.js)
-* **MongoDB** (local installation or MongoDB Atlas)
+- Java 17+
+- Maven
+- Node.js 18+
+- npm
 
----
+## Backend Setup (Spring Boot)
 
-## Backend Setup
-
-1. Open terminal and go to the backend folder:
-
-```bash
-cd login-backend
-```
-
-2. Install dependencies:
+1. Go to backend folder:
 
 ```bash
-npm install
+cd SweetBitesBE/springboot-backend
 ```
 
-3. Create a `.env` file in the backend folder with:
+2. Optional environment variables:
 
 ```env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/login_db
-JWT_SECRET=..............
+JWT_SECRET=YourLongSecretKeyAtLeast32Chars
+ADMIN_EMAIL=admin@sweetbites.com
+ADMIN_PASSWORD=Admin@1234
+
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+CONTACT_TO_EMAIL=your_email@gmail.com
 ```
 
-4. Start MongoDB (if local):
+3. Run backend:
 
 ```bash
-mongod
+mvn spring-boot:run
 ```
 
-5. Run the backend server:
+Default endpoints:
 
-```bash
-npm run dev
-```
+- Auth: `POST /api/auth/register`, `POST /api/auth/login`
+- Admin products: `POST /api/admin/products`, `PUT /api/admin/products/{id}`
+- Admin deliveries: `GET /api/admin/deliveries`, `PATCH /api/admin/deliveries/{id}/status`
+- Contact: `POST /api/contact`
 
-The backend will run at: [http://localhost:5000](http://localhost:5000)
+## Frontend Setup (Angular)
 
----
-
-## Frontend Setup
-
-1. Open a new terminal and go to the frontend folder:
+1. Go to frontend folder:
 
 ```bash
 cd SweetBitesFE
@@ -66,60 +64,14 @@ cd SweetBitesFE
 npm install
 ```
 
-3. Run the Angular frontend:
+3. Run frontend:
 
 ```bash
-ng serve
+npm start
 ```
-
-The frontend will run at: [http://localhost:4200](http://localhost:4200)
-
----
-
-## Connecting Frontend & Backend
-
-* The frontend uses `AuthService` to call backend API:
-
-  * Signup: `POST http://localhost:5000/api/auth/signup`
-  * Login: `POST http://localhost:5000/api/auth/login`
-* Ensure backend is running before using the frontend.
-
-### Architecture Diagram
-
-```
-+----------------+         HTTP/API          +-----------------+
-| Angular Front  | -----------------------> | Node.js/Express |
-|   (SweetBitesFE)|                          |   Backend       |
-+----------------+ <----------------------- +-----------------+
-       |                                      |
-       | NgService (AuthService)              |
-       |                                      |
-       v                                      v
-   User Input                             MongoDB
- (Signup/Login)                        (login_db Collection)
-```
-
----
-
-## Viewing Users in MongoDB
-
-Open Mongo shell or MongoDB Compass:
-
-```bash
-mongo
-use login_db
-db.users.find().pretty()
-```
-
-This will show all registered users.
-
----
 
 ## Notes
 
-* Make sure MongoDB is running before starting the backend.
-* JWT tokens are used for authentication.
-* Frontend routes:
-
-  * `/login` → login page
-  * `/signup` → signup page
+- Admin user is auto-seeded on startup from `ADMIN_EMAIL` and `ADMIN_PASSWORD`.
+- Frontend is configured to call backend on `http://localhost:8080`.
+- Old Node backends were removed from this workspace.

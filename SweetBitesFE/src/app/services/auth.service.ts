@@ -4,15 +4,43 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:5000/api/auth';
+  private baseUrl = 'http://localhost:8080/api/auth';
+  private tokenKey = 'token';
+  private roleKey = 'role';
 
   constructor(private http: HttpClient) {}
 
   signup(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/signup`, data);
+    return this.http.post(`${this.baseUrl}/register`, data);
   }
 
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, data);
+  }
+
+  setSession(token: string, role: string): void {
+    localStorage.setItem(this.tokenKey, token);
+    localStorage.setItem(this.roleKey, role);
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.roleKey);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  getRole(): string | null {
+    return localStorage.getItem(this.roleKey);
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
+  isAdmin(): boolean {
+    return this.getRole() === 'ROLE_ADMIN';
   }
 }

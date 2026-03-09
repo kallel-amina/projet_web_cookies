@@ -1,0 +1,73 @@
+<section class="admin-page">
+  <h1>Admin Dashboard</h1>
+
+  <div class="admin-card">
+    <h2>Products</h2>
+
+    <label>Name</label>
+    <input [(ngModel)]="productForm.name" type="text" />
+
+    <label>Description</label>
+    <textarea [(ngModel)]="productForm.description"></textarea>
+
+    <label>Price</label>
+    <input [(ngModel)]="productForm.price" type="number" min="0" step="0.01" />
+
+    <label>Stock</label>
+    <input [(ngModel)]="productForm.stock" type="number" min="0" />
+
+    <label>Active</label>
+    <select [(ngModel)]="productForm.active">
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <button (click)="createProduct()">Add Product</button>
+
+    <label>Product ID to Update</label>
+    <input [(ngModel)]="updateProductId" type="text" />
+    <button (click)="updateProduct()">Update Product</button>
+  </div>
+
+  <div class="admin-card">
+    <h2>Deliveries</h2>
+
+    <label>Order ID</label>
+    <input [(ngModel)]="deliveryCreateOrderId" type="number" min="1" />
+    <button (click)="createDelivery()">Create Delivery</button>
+
+    <hr />
+
+    <label>Delivery ID</label>
+    <input [(ngModel)]="deliveryUpdateId" type="text" />
+
+    <label>Status</label>
+    <select [(ngModel)]="deliveryUpdateStatus">
+      <option value="PENDING">PENDING</option>
+      <option value="OUT_FOR_DELIVERY">OUT_FOR_DELIVERY</option>
+      <option value="DELIVERED">DELIVERED</option>
+      <option value="CANCELLED">CANCELLED</option>
+    </select>
+
+    <button (click)="updateDeliveryStatus()">Update Delivery Status</button>
+
+    <hr />
+
+    <label>Filter by status (optional)</label>
+    <select [(ngModel)]="deliveryFilterStatus">
+      <option value="">ALL</option>
+      <option value="PENDING">PENDING</option>
+      <option value="OUT_FOR_DELIVERY">OUT_FOR_DELIVERY</option>
+      <option value="DELIVERED">DELIVERED</option>
+      <option value="CANCELLED">CANCELLED</option>
+    </select>
+
+    <button (click)="loadDeliveries()">Load Deliveries</button>
+
+    <ul>
+      <li *ngFor="let d of deliveries">
+        #{{ d.id }} - Order {{ d.orderId }} - {{ d.status }} - {{ d.updatedAt }}
+      </li>
+    </ul>
+  </div>
+</section>
