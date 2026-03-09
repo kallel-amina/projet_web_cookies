@@ -35,7 +35,10 @@ public class AuthController {
         }
 
         User user = User.builder()
+                .fullName(request.getFullName())
                 .email(request.getEmail())
+                .phone(request.getPhone())
+                .address(request.getAddress())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.ROLE_USER)
                 .build();
@@ -44,7 +47,14 @@ public class AuthController {
         String token = jwtService.generateToken(saved, saved.getRole().name());
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new AuthResponse(token, saved.getEmail(), saved.getRole().name()));
+                .body(new AuthResponse(
+                        token, 
+                        saved.getEmail(), 
+                        saved.getFullName(), 
+                        saved.getRole().name(),
+                        saved.getPhone(),
+                        saved.getAddress()
+                ));
     }
 
     @PostMapping("/login")
@@ -61,6 +71,35 @@ public class AuthController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
         String token = jwtService.generateToken(user, user.getRole().name());
-        return ResponseEntity.ok(new AuthResponse(token, user.getEmail(), user.getRole().name()));
+        return ResponseEntity.ok(new AuthResponse(
+                token, 
+                user.getEmail(), 
+                user.getFullName(), 
+                user.getRole().name(),
+                user.getPhone(),
+                user.getAddress()
+        ));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> getCurrentUser(@RequestHeader("Authorization") String authHeader) {
+        System.out.println("DEBUG: Received /me request with header: " + (authHeader != null ? "present" : "absent"));
+        try {
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                System.out.println("DEBUG: Invalid or missing Bearer token");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token format");
+            }
+            String token = authHeader.substring(7);
+            String email = jwtService.extractUsername(token);
+            System.out.println("DEBUG: Extracted email: " + email);
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+            System.out.println("DEBUG: User found: " + user.getEmail());
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            System.out.println("DEBUG: Error in /me endpoint: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 }

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { timeout, catchError, of } from 'rxjs';
 
 interface FavoriteItem {
   name: string;
@@ -7,12 +9,12 @@ interface FavoriteItem {
   category: string;
 }
 
-interface Order {
+interface OrderItem {
   id: string;
   date: string;
+  status: 'Pending' | 'Delivered' | 'Cancelled';
   items: string[];
   total: number;
-  status: 'Delivered' | 'Pending' | 'Cancelled';
 }
 
 @Component({
@@ -22,16 +24,59 @@ interface Order {
   templateUrl: './profile.html',
   styleUrls: ['./profile.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
   activeTab: 'account' | 'favorites' | 'orders' = 'account';
+  loading = true;
 
   user = {
-    name: 'Sweet Lover',
-    email: 'sweetlover@gmail.com',
-    phone: '+216 22 333 444',
-    address: 'Sweet Street, Dessert City'
+    fullName: '',
+    email: '',
+    phone: '',
+    address: ''
   };
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    console.log('PROFILE_DEBUG: ngOnInit started');
+    
+    // Safety check: force loading off after 3s no matter what
+    setTimeout(() => {
+      console.log('PROFILE_DEBUG: Heartbeat timeout reached - forcing loading=false');
+      this.loading = false;
+    }, 3000);
+
+    const token = this.authService.getToken();
+    if (!token) {
+      console.error('PROFILE_DEBUG: No token found in localStorage!');
+      this.loading = false;
+      return;
+    }
+
+    console.log('PROFILE_DEBUG: Token found, fetching profile...');
+    this.authService.getProfile().subscribe({
+      next: (data: any) => {
+        console.log('PROFILE_DEBUG: Data received from backend:', data);
+        if (data) {
+          this.user.fullName = data.fullName || (data.email ? data.email.split('@')[0] : 'Unknown User');
+          this.user.email = data.email || 'No Email';
+          this.user.phone = data.phone || '+216 -- --- ---';
+          this.user.address = data.address || 'Address not set';
+        }
+        console.log('PROFILE_DEBUG: Setting loading to false');
+        this.loading = false;
+      },
+      error: (err: any) => {
+        console.error('PROFILE_DEBUG: Profile fetch failed:', err);
+        this.loading = false;
+      },
+      complete: () => {
+        console.log('PROFILE_DEBUG: Profile subscription completed');
+        this.loading = false;
+      }
+    });
+  }
 
   favorites: FavoriteItem[] = [
     {
@@ -51,7 +96,7 @@ export class ProfileComponent {
     }
   ];
 
-  orders: Order[] = [
+  orders: OrderItem[] = [
     {
       id: '#SB-1023',
       date: '12 Aug 2025',

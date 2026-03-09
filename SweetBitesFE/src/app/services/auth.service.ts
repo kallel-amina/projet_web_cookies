@@ -43,4 +43,11 @@ export class AuthService {
   isAdmin(): boolean {
     return this.getRole() === 'ROLE_ADMIN';
   }
+
+  getProfile(): Observable<any> {
+    const token = this.getToken();
+    return this.http.get(`http://localhost:8080/api/auth/me`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  }
 }

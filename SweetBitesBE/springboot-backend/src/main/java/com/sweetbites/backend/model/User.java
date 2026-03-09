@@ -22,7 +22,11 @@ public class User implements UserDetails {
     private String id;
 
     private String email;
+    private String fullName;
+    private String phone;
+    private String address;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private String password;
 
     private Role role;

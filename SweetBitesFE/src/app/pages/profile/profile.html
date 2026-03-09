@@ -2,59 +2,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@400;600;700&family=Lobster&display=swap" rel="stylesheet">
 
 <div class="profile-wrapper">
+  <div *ngIf="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading your sweet profile...</p>
+  </div>
 
-  <!-- HEADER -->
-  <header class="profile-header">
-    <div class="avatar">{{ user.name[0] }}</div>
-    <div>
-      <h1 class="brand">{{ user.name }}</h1>
-      <p class="email">{{ user.email }}</p>
-    </div>
-  </header>
+  <div *ngIf="!loading && !user.email" class="error-overlay">
+    <div class="error-icon">⚠️</div>
+    <p>Oops! Something went wrong while loading your profile.</p>
+    <button (click)="ngOnInit()">Retry</button>
+  </div>
 
-  <!-- TABS -->
-  <nav class="tabs">
-    <button (click)="activeTab='account'" [class.active]="activeTab==='account'">Account</button>
-    <button (click)="activeTab='favorites'" [class.active]="activeTab==='favorites'">Favorites</button>
-    <button (click)="activeTab='orders'" [class.active]="activeTab==='orders'">Orders</button>
-  </nav>
-
-  <!-- ACCOUNT -->
-  <section *ngIf="activeTab==='account'" class="card account-card">
-    <h2>Account Information</h2>
-    <p><strong>Name:</strong> {{ user.name }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Phone:</strong> {{ user.phone }}</p>
-    <p><strong>Address:</strong> {{ user.address }}</p>
-  </section>
-
-  <!-- FAVORITES -->
-  <section *ngIf="activeTab==='favorites'" class="favorites">
-    <div class="favorite" *ngFor="let item of favorites">
-      <img [src]="item.image" />
-      <div class="favorite-overlay">
-        <h3>{{ item.name }}</h3>
-        <span>{{ item.category }}</span>
-        <button (click)="removeFavorite(item)">Remove</button>
+  <ng-container *ngIf="!loading && user.email">
+    <!-- HEADER -->
+    <header class="profile-header">
+      <div class="avatar">{{ (user.fullName && user.fullName.length > 0) ? user.fullName[0] : '?' }}</div>
+      <div>
+        <h1 class="brand">{{ user.fullName }}</h1>
+        <p class="email">{{ user.email }}</p>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ORDERS -->
-  <section *ngIf="activeTab==='orders'" class="orders">
-    <div class="order" *ngFor="let order of orders">
-      <div class="order-top">
-        <span class="order-id">{{ order.id }}</span>
-        <span class="status" [class]="order.status.toLowerCase()">
-          {{ order.status }}
-        </span>
+    <!-- TABS -->
+    <nav class="tabs">
+      <button (click)="activeTab='account'" [class.active]="activeTab==='account'">Account</button>
+      <button (click)="activeTab='favorites'" [class.active]="activeTab==='favorites'">Favorites</button>
+      <button (click)="activeTab='orders'" [class.active]="activeTab==='orders'">Orders</button>
+    </nav>
+
+    <!-- ACCOUNT -->
+    <section *ngIf="activeTab==='account'" class="card account-card">
+      <h2>Account Information</h2>
+      <p><strong>Name:</strong> {{ user.fullName }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+      <p><strong>Address:</strong> {{ user.address }}</p>
+    </section>
+
+    <!-- FAVORITES -->
+    <section *ngIf="activeTab==='favorites'" class="favorites">
+      <div class="favorite" *ngFor="let item of favorites">
+        <img [src]="item.image" />
+        <div class="favorite-overlay">
+          <h3>{{ item.name }}</h3>
+          <span>{{ item.category }}</span>
+          <button (click)="removeFavorite(item)">Remove</button>
+        </div>
       </div>
-      <p class="date">{{ order.date }}</p>
-      <ul>
-        <li *ngFor="let item of order.items"> {{ item }}</li>
-      </ul>
-      <p class="total">Total: {{ order.total }} DT</p>  
-    </div>
-  </section>
+    </section>
 
+    <!-- ORDERS -->
+    <section *ngIf="activeTab==='orders'" class="orders">
+      <div class="order" *ngFor="let order of orders">
+        <div class="order-top">
+          <span class="order-id">{{ order.id }}</span>
+          <span class="status" [class]="order.status.toLowerCase()">
+            {{ order.status }}
+          </span>
+        </div>
+        <p class="date">{{ order.date }}</p>
+        <ul>
+          <li *ngFor="let item of order.items"> {{ item }}</li>
+        </ul>
+        <p class="total">Total: {{ order.total }} DT</p>  
+      </div>
+    </section>
+  </ng-container>
 </div>

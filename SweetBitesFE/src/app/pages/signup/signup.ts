@@ -16,6 +16,8 @@ export class SignupComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  phone: string = '';
+  address: string = '';
   showPassword = false;
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -31,8 +33,11 @@ export class SignupComponent {
     }
 
     const data = {
+      fullName: this.fullName,
       email: this.email,
-      password: this.password
+      password: this.password,
+      phone: this.phone,
+      address: this.address
     };
 
     this.authService.signup(data).subscribe({
