@@ -27,4 +27,10 @@ public class ProductRequest {
 
     @NotNull
     private Boolean active;
+
+    private String category;
+
+    private String imageUrl;
+
+    private String imageAlt;
 }

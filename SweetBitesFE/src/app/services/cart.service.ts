@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface CartItem {
-  id: number;
+  id: string;
   name: string;
   price: number;
   imageUrl: string;
@@ -34,7 +34,7 @@ export class CartService {
     }
   }
 
-  removeFromCart(id: number) {
+  removeFromCart(id: string) {
     this.items = this.items.filter(item => item.id !== id);
   }
 

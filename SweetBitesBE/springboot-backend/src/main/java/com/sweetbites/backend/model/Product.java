@@ -26,4 +26,10 @@ public class Product {
     private Integer stock;
 
     private Boolean active;
+
+    private String category;
+
+    private String imageUrl;
+
+    private String imageAlt;
 }

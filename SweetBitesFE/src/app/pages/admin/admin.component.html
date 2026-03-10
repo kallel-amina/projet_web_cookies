@@ -22,11 +22,42 @@
       <option [ngValue]="false">No</option>
     </select>
 
+    <label>Product Page</label>
+    <select [(ngModel)]="selectedProductPage">
+      <option *ngFor="let page of productPages" [value]="page">{{ page }}</option>
+    </select>
+
+    <label>Dietary Tag</label>
+    <select [(ngModel)]="selectedDietaryTag">
+      <option *ngFor="let tag of dietaryTags" [value]="tag">{{ tag }}</option>
+    </select>
+
+    <label>Image URL (optional)</label>
+    <input [(ngModel)]="productForm.imageUrl" type="text" />
+
+    <label>Image Alt (optional)</label>
+    <input [(ngModel)]="productForm.imageAlt" type="text" />
+
     <button (click)="createProduct()">Add Product</button>
 
     <label>Product ID to Update</label>
     <input [(ngModel)]="updateProductId" type="text" />
     <button (click)="updateProduct()">Update Product</button>
+
+    <hr />
+
+    <button (click)="loadProducts()">Load Products</button>
+
+    <p *ngIf="productsLoading">Loading products...</p>
+    <p *ngIf="productsError">{{ productsError }}</p>
+
+    <ul>
+      <li *ngFor="let p of products">
+        #{{ p.id }} - {{ p.name }} - {{ p.price }} DT
+        <button (click)="useProduct(p)">Edit</button>
+        <button (click)="deleteProduct(p.id)">Delete</button>
+      </li>
+    </ul>
   </div>
 
   <div class="admin-card">

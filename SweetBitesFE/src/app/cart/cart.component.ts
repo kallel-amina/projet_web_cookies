@@ -15,7 +15,7 @@ export class CartComponent {
     this.cart = this.cartService.getCart();
   }
 
-  remove(id: number) {
+  remove(id: string) {
     this.cartService.removeFromCart(id);
     this.cart = this.cartService.getCart();
   }

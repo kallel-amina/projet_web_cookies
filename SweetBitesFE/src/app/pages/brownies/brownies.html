@@ -40,29 +40,40 @@
           <!-- Filter chips wired up -->
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('fudgy')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='fudgy'}"
+            (click)="filterByCategory('protein')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='protein'}"
           >
-            <p class="text-sm font-medium leading-normal">Fudgy</p>
+            <p class="text-sm font-medium leading-normal">Protein</p>
           </button>
 
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('chewy')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='chewy'}"
+            (click)="filterByCategory('healthy')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='healthy'}"
           >
-            <p class="text-sm font-medium leading-normal">Chewy</p>
+            <p class="text-sm font-medium leading-normal">Healthy</p>
           </button>
 
           <button
             class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
-            (click)="filterByCategory('nutty')"
-            [ngClass]="{'ring-1 ring-primary': selectedFilter==='nutty'}"
+            (click)="filterByCategory('sugar-free')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter==='sugar-free'}"
           >
-            <p class="text-sm font-medium leading-normal">Nutty</p>
+            <p class="text-sm font-medium leading-normal">Sugar-free</p>
+          </button>
+
+          <button
+            class="flex h-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-background-dark border border-primary/20 dark:border-white/20 px-4 text-text-primary dark:text-gray-200 hover:border-primary transition-colors"
+            (click)="filterByCategory('all')"
+            [ngClass]="{'ring-1 ring-primary': selectedFilter===null}"
+          >
+            <p class="text-sm font-medium leading-normal">All</p>
           </button>
         </div>
         <!-- Chips/Filters End -->
+
+        <p *ngIf="loading" class="pt-6 text-text-secondary dark:text-gray-400">Loading products...</p>
+        <p *ngIf="error" class="pt-6 text-text-secondary dark:text-gray-400">{{ error }}</p>
 
         <!-- ImageGrid Start (dynamic) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
@@ -72,6 +83,9 @@
             </div>
             <div class="flex flex-col items-start text-left">
               <p class="text-text-primary dark:text-white text-lg font-bold leading-normal">{{ p.name }}</p>
+              <span *ngIf="getDietaryTag(p) as tag" class="mt-1 inline-flex items-center rounded-full border border-primary/30 px-2 py-0.5 text-xs font-medium text-text-secondary dark:text-gray-300">
+                {{ tag }}
+              </span>
               <p class="text-text-secondary dark:text-gray-400 text-sm font-normal leading-normal">{{ p.description }}</p>
               <p class="text-text-primary dark:text-gray-300 text-base font-medium leading-normal mt-1">
                 {{ p.price | number:'1.2-2' }} DT 

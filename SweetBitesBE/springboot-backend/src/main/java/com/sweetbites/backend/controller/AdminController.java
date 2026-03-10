@@ -33,6 +33,9 @@ public class AdminController {
                 .price(request.getPrice())
                 .stock(request.getStock())
                 .active(request.getActive())
+            .category(request.getCategory())
+            .imageUrl(request.getImageUrl())
+            .imageAlt(request.getImageAlt())
                 .build();
 
         Product saved = productRepository.save(product);
@@ -49,8 +52,25 @@ public class AdminController {
         existing.setPrice(request.getPrice());
         existing.setStock(request.getStock());
         existing.setActive(request.getActive());
+        existing.setCategory(request.getCategory());
+        existing.setImageUrl(request.getImageUrl());
+        existing.setImageAlt(request.getImageAlt());
 
         return ResponseEntity.ok(productRepository.save(existing));
+    }
+
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getProducts() {
+        return ResponseEntity.ok(productRepository.findAll());
+    }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
+        if (!productRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+        productRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/deliveries")
